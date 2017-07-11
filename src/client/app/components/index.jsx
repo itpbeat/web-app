@@ -14,6 +14,7 @@ class Main extends React.Component {
         <div>
           <Route exact path="/" component={App} />
           <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/login" component={Login} />
         </div>
       </Router>
     );

@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const express = require('express'); // include the express library
+const passport = require('passport');
+require('./config/passport');
 
 const app = express();
 
@@ -21,8 +23,16 @@ mongoose.connection.on('open', () => {
 // add body parser
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+app.use(require('express-session')({ secret: 'keyboard cat'}));
 
 // add routes
+app.use(passport.initialize());
+app.use(passport.session());
 
 var userRoutes = require('./controllers/userController.jsx');
 app.use('/users', userRoutes);
+app.post('/login',
+  passport.authenticate('local', { failureRedirect: '/' }),
+  function(req, res) {
+    res.redirect('/users');
+  });
