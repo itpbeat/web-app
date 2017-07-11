@@ -23,10 +23,6 @@ function createUser(req,res) {
       res.send('Successfully saved')
     }
   })
-  // console.log("inside create User");
-
-  // res.send("success");
-
 }
 
 function saveUser(res, user) {
