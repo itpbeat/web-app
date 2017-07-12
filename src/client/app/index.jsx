@@ -1,16 +1,13 @@
 import React from 'react';
-import {render} from 'react-dom';
-import Counter from './components/Counter.jsx';
+import ReactDOM, {render} from 'react-dom';
+import App from './components/App.jsx';
 
-class App extends React.Component {
+class Main extends React.Component {
   render () {
     return (
-      <div>
-        <p> Hello React!</p>
-        <Counter/>
-      </div>
+      <App/>
     );
   }
 }
 
-render(<App/>, document.getElementById('app'));
+render(<Main/>, document.getElementById('app'));
