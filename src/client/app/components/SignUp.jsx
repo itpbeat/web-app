@@ -10,13 +10,13 @@ class SignUp extends React.Component {
     this.state = {
       name: '',
       password: ''
-    }
+    };
   }
   updateName(event) {
-    this.setState({name: event.target.value});
+    this.setState({ name: event.target.value });
   }
   updatePassword(event) {
-    this.setState({password: event.target.value});
+    this.setState({ password: event.target.value });
   }
   submitForm(event) {
     console.log('press submit');
@@ -24,10 +24,10 @@ class SignUp extends React.Component {
       name: this.state.name,
       password: this.state.password
     })
-      .then(function(response) {
+      .then(function(response) { // eslint-disable-line
         console.log(response);
       })
-      .catch(function(error) {
+      .catch(function(error) { // eslint-disable-line
         console.log(error);
       });
     event.preventDefault();

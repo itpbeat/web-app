@@ -6,6 +6,7 @@ var userRoutes = express.Router();
 
 userRoutes.route('/signup').post(createUser);
 userRoutes.route('/').get(getUsers);
+userRoutes.route('/user').get(getUser);
 
 function createUser(req,res) {
   const name = req.body.name;
@@ -41,6 +42,21 @@ function getUsers(req,res) {
       res.send(err);
     } else {
       res.json(users);
+    }
+  })
+}
+
+function getUser(req,res) {
+  User.find(function(err,users) {
+    if(err) {
+      res.send(err);
+    } else {
+      if(req.user) {
+        res.json({username: req.user.name, authenticated: true});
+      } else {
+        res.json({username: '', authenticated: false});
+      }
+
     }
   })
 }

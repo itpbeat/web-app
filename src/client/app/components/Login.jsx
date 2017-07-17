@@ -2,40 +2,63 @@ import React from 'react';
 import axios from 'axios';
 
 class Login extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.submitForm = this.submitForm.bind(this);
     this.updateName = this.updateName.bind(this);
     this.updatePassword = this.updatePassword.bind(this);
+    this.logOut = this.logOut.bind(this);
     this.state = {
       name: '',
       password: ''
-    }
+    };
   }
   updateName(event) {
-    this.setState({name: event.target.value});
+    this.setState({ name: event.target.value });
   }
   updatePassword(event) {
-    this.setState({password: event.target.value});
+    this.setState({ password: event.target.value });
   }
   submitForm(event) {
     console.log('press submit');
+    console.log(this.props);
+    let that = this;
     axios.post('/login', {
       name: this.state.name,
       password: this.state.password
     })
       .then(function(response) {
-        console.log(response);
+        if(response.data.authenticated) {
+          that.props.updateUserName(that.state.name);
+          that.props.authenticateUser();
+          console.log("Logged in");
+        }
       })
-      .catch(function(error) {
+      .catch(function(error) { // eslint-disable-line
+        console.log("NOT authenticated");
         console.log(error);
       });
     event.preventDefault();
   }
+  logOut() {
+    console.log("hi");
+    let that = this;
+    axios.get('/logout')
+      .then(function(response) { // eslint-disable-line
+        console.log(response);
+        if(!response.data.authenticated) {
+          that.props.unauthenticateUser();
+        }
+      })
+      .catch(function(error) { // eslint-disable-line
+        console.log("NOT authenticated");
+        console.log(error);
+      });
+  }
   render() {
     return (
       <div>
-        Sign up here
+        Log In here
         <form onSubmit={this.submitForm}>
           <label> name:
             <input type="text" value={this.state.name} onChange={this.updateName}/>
@@ -45,6 +68,7 @@ class Login extends React.Component {
           </label>
           <input type="submit" value='Submit' />
         </form>
+        <button onClick={this.logOut}>logout</button>
       </div>
     );
   }

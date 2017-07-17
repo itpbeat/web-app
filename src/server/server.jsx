@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const express = require('express'); // include the express library
 const passport = require('passport');
+const path = require('path');
 require('./config/passport');
 
 const app = express();
@@ -30,9 +31,37 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 var userRoutes = require('./controllers/userController.jsx');
+
+function loggedIn(req, res, next) {
+    if (req.user) {
+        next();
+    } else {
+      if(req.url.localeCompare('/login')){
+        console.log('redirecting');
+        res.redirect('/login');
+      } else {
+        console.log('asked for login');
+        next();
+      }
+    }
+}
+
 app.use('/users', userRoutes);
 app.post('/login',
   passport.authenticate('local', { failureRedirect: '/' }),
   function(req, res) {
-    res.redirect('/users');
+    res.status(200);
+    res.json({ authenticated: true });
+    res.end();
+
   });
+
+app.get('/logout', function(req, res){
+  console.log('logout');
+  req.logout();
+  res.redirect('/');
+});
+
+app.get('*', loggedIn, function (req, res) {
+  res.sendFile(path.resolve(__dirname, '..', 'client', 'index.html'))
+});
