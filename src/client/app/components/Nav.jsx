@@ -1,14 +1,26 @@
 import React from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 class Nav extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props);
+    this.logOut = this.logOut.bind(this);
   }
-  componentDidUpdate() {
-
-    console.log(this.props);
+  logOut() {
+    console.log("hi");
+    let that = this;
+    axios.get('/logout')
+      .then(function(response) { // eslint-disable-line
+        console.log(response);
+        if(!response.data.authenticated) {
+          that.props.unauthenticateUser();
+        }
+      })
+      .catch(function(error) { // eslint-disable-line
+        console.log("NOT authenticated");
+        console.log(error);
+      });
   }
   render() {
     return (
@@ -23,7 +35,10 @@ class Nav extends React.Component {
             );
           } else {
             return (
-              <p>Welcome {this.props.username}</p>
+              <div>
+                <p>Welcome {this.props.username}</p>
+                <button onClick={this.logOut}>logout</button>
+              </div>
             );
           }
         })()}

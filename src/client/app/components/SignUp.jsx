@@ -32,6 +32,9 @@ class SignUp extends React.Component {
       });
     event.preventDefault();
   }
+  redirectHome() {
+    location.href='/';
+  }
   render() {
     return (
       <div>
@@ -43,7 +46,7 @@ class SignUp extends React.Component {
           <label> password:
             <input type="text" value={this.state.password} onChange={this.updatePassword}/>
           </label>
-          <input type="submit" value='Submit' />
+          <input type="submit" value='Submit' onClick={this.redirectHome}/>
         </form>
       </div>
     );

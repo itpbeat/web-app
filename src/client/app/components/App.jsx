@@ -11,9 +11,17 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Header/>
-        <Video/>
-        <Planet/>
+        {(() => { // eslint-disable-line
+          if (this.props.authenticated) {
+            return (
+              <div>
+                <Header/>
+                <Video/>
+                <Planet/>
+              </div>
+            );
+          }
+        })()}
       </div>
     );
   }
