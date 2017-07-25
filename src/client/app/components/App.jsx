@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header.jsx';
 import Video from './Video.jsx';
 import Planet from './Planet.jsx';
+import Beatmachine from './Beatmachine.jsx';
 
 
 class App extends React.Component {
@@ -12,12 +13,13 @@ class App extends React.Component {
     return (
       <div>
         {(() => { // eslint-disable-line
-          if (this.props.authenticated) {
+          if (true) { // this.props.authenticated) {
             return (
               <div>
                 <Header/>
                 <Video/>
                 <Planet/>
+                <Beatmachine/>
               </div>
             );
           }

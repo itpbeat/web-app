@@ -9,7 +9,10 @@ const app = express();
 
 // start the server:
 app.listen(8080);
+
 app.use('/', express.static('src/client/')); // set a static file directory
+// app.use('/static', express.static('src/client/public/'));
+
 
 mongoose.connect('mongodb://localhost:27017/beat-itp');
 mongoose.connection.on('error', () => {

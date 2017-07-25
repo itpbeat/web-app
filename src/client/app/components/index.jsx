@@ -48,6 +48,9 @@ class Main extends React.Component {
     return (
       <Router history={browserHistory}>
         <div className="test">
+          <App
+            authenticated={this.state.authenticated}
+          />
           <Nav
             authenticated={this.state.authenticated}
             username={this.state.username}
