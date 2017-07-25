@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Switch, browserHistory} from 'react-rou
 import Nav from './Nav.jsx';
 import SignUp from './SignUp.jsx';
 import Login from './Login.jsx';
-import Counter from './Counter.jsx';
+import App from './App.jsx';
 
 class Main extends React.Component {
   constructor() {
@@ -24,7 +24,7 @@ class Main extends React.Component {
     let that = this;
     axios.get('/users/user')
       .then(function(response) { // eslint-disable-line
-        console.log(response.data);
+        console.log(response.data)
         that.setState({ authenticated: response.data.authenticated });
         that.setState({ username: response.data.username });
       })
@@ -51,7 +51,7 @@ class Main extends React.Component {
             username={this.state.username}
           />
           <Route exact path="/signup" component={SignUp} />
-          <Route exact path="/test" component={Counter} />
+          <Route exact path="/home" component={App} />
           <Route exact path="/login" component={() => (
               <Login
                 unauthenticateUser={this.unauthenticateUser}
