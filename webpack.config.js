@@ -21,7 +21,11 @@ var config = {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'eslint-loader'
-      }
+      },
+      {
+        test: /\.scss$/,
+        loaders: ['style-loader', 'css-loader', 'sass-loader']
+      },
     ]
   }
 };

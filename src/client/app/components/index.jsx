@@ -8,6 +8,8 @@ import SignUp from './SignUp.jsx';
 import Login from './Login.jsx';
 import App from './App.jsx';
 
+require('../styles/main.scss');
+
 class Main extends React.Component {
   constructor() {
     super();
@@ -45,16 +47,21 @@ class Main extends React.Component {
   render() {
     return (
       <Router history={browserHistory}>
-        <div>
+        <div className="test">
           <Nav
             authenticated={this.state.authenticated}
             username={this.state.username}
+            unauthenticateUser={this.unauthenticateUser}
           />
           <Route exact path="/signup" component={SignUp} />
-          <Route exact path="/home" component={App} />
+          <Route exact path="/home" component={() => (
+              <App
+                authenticated={this.state.authenticated}
+              />
+            )}
+          />
           <Route exact path="/login" component={() => (
               <Login
-                unauthenticateUser={this.unauthenticateUser}
                 authenticateUser={this.authenticateUser}
                 updateUserName={this.updateUserName}
               />

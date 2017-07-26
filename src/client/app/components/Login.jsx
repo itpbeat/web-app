@@ -8,6 +8,7 @@ class Login extends React.Component {
     this.updateName = this.updateName.bind(this);
     this.updatePassword = this.updatePassword.bind(this);
     this.logOut = this.logOut.bind(this);
+    this.redirectHome = this.redirectHome.bind(this);
     this.state = {
       name: '',
       password: ''
@@ -55,6 +56,9 @@ class Login extends React.Component {
         console.log(error);
       });
   }
+  redirectHome() {
+    location.href='/home';
+  }
   render() {
     return (
       <div>
@@ -66,9 +70,8 @@ class Login extends React.Component {
           <label> password:
             <input type="text" value={this.state.password} onChange={this.updatePassword}/>
           </label>
-          <input type="submit" value='Submit' />
+          <input type="submit" value='Submit' onClick={this.redirectHome}/>
         </form>
-        <button onClick={this.logOut}>logout</button>
       </div>
     );
   }
