@@ -9,7 +9,7 @@ const app = express();
 
 // start the server:
 app.listen(8080);
-app.use('/', express.static('src/client/')); // set a static file directory
+app.use('/', express.static('public/')); // set a static file directory
 
 mongoose.connect('mongodb://localhost:27017/beat-itp');
 mongoose.connection.on('error', () => {
@@ -63,5 +63,5 @@ app.get('/logout', function(req, res){
 });
 
 app.get('*', loggedIn, function (req, res) {
-  res.sendFile(path.resolve(__dirname, '..', 'client', 'index.html'))
+  res.sendFile(path.resolve(__dirname, '../../public/index.html'))
 });

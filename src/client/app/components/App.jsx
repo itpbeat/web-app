@@ -3,6 +3,7 @@ import Header from './Header.jsx';
 import Video from './Video.jsx';
 import Planet from './Planet.jsx';
 
+const testImageUrl = require('../assets/test.png');
 
 class App extends React.Component {
   constructor(props) {
@@ -15,6 +16,7 @@ class App extends React.Component {
           if (this.props.authenticated) {
             return (
               <div>
+                <img src={testImageUrl} />
                 <Header/>
                 <Video/>
                 <Planet/>
