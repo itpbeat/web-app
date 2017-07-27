@@ -4,6 +4,7 @@ import Video from './Video.jsx';
 import Planet from './Planet.jsx';
 import Beatmachine from './Beatmachine.jsx';
 
+const testImageUrl = require('../assets/test.png');
 
 class App extends React.Component {
   constructor(props) {
@@ -12,18 +13,12 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        {(() => { // eslint-disable-line
-          if (true) { // this.props.authenticated) {
-            return (
-              <div>
-                <Header/>
-                <Video/>
-                <Planet/>
-                <Beatmachine/>
-              </div>
-            );
-          }
-        })()}
+        <div>
+          <img src={testImageUrl} />
+          <Header/>
+          <Video/>
+          <Planet/>
+        </div>
       </div>
     );
   }
