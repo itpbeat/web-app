@@ -4,8 +4,6 @@ import Video from './Video.jsx';
 import Planet from './Planet.jsx';
 import Beatmachine from './Beatmachine.jsx';
 
-const testImageUrl = require('../assets/test.png');
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -14,7 +12,6 @@ class App extends React.Component {
     return (
       <div>
         <div>
-          <img src={testImageUrl} />
           <Header/>
           <Video/>
           <Planet/>
