@@ -18,6 +18,7 @@ class App extends React.Component {
           <Header/>
           <Video/>
           <Planet/>
+          <Beatmachine/>
         </div>
       </div>
     );

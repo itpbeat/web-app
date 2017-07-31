@@ -8,8 +8,7 @@ var config = {
   entry: APP_DIR + '/components/index.jsx',
   output: {
     path: BUILD_DIR,
-    filename: 'bundle.js',
-    publicPath: 'src/client/public/'
+    filename: 'bundle.js'
   },
   module: {
     loaders: [{
