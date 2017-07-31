@@ -12,18 +12,12 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        {(() => { // eslint-disable-line
-          if (this.props.authenticated) {
-            return (
-              <div>
-                <img src={testImageUrl} />
-                <Header/>
-                <Video/>
-                <Planet/>
-              </div>
-            );
-          }
-        })()}
+        <div>
+          <img src={testImageUrl} />
+          <Header/>
+          <Video/>
+          <Planet/>
+        </div>
       </div>
     );
   }
