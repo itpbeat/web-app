@@ -27,10 +27,10 @@ class Beatmachine extends React.Component {
         3: shoesSound
       },
       referenceNames: {
-        0: "Boots",
-        1: "Tools",
-        2: "Kale",
-        3: "Shoes"
+        0: "B",
+        1: "T",
+        2: "K",
+        3: "S"
       },
       recordedBlobURL: {
         0: null,
@@ -115,7 +115,30 @@ class Beatmachine extends React.Component {
     audioPlay.play();
   }
   render() {
-    const preferencesContainerClass = classNames({'preferences': true, 'preferences--selected': this.props.isVisible});
+    const recordButtonClass = classNames({
+      'record__button': true,
+      'record__button--disabled': !this.state.isDeciding
+    });
+    const trackButtonBClass = classNames({
+      'beat-button': true,
+      'beat-button-b': true,
+      'beat-button--deactivate': !this.state.isTrackRecorded[0]
+    });
+    const trackButtonTClass = classNames({
+      'beat-button': true,
+      'beat-button-t': true,
+      'beat-button--deactivate': !this.state.isTrackRecorded[1]
+    });
+    const trackButtonKClass = classNames({
+      'beat-button': true,
+      'beat-button-k': true,
+      'beat-button--deactivate': !this.state.isTrackRecorded[2]
+    });
+    const trackButtonSClass = classNames({
+      'beat-button': true,
+      'beat-button-s': true,
+      'beat-button--deactivate': !this.state.isTrackRecorded[3]
+    });
     let showImageUrl = null;
     if (!this.state.isDeciding) {
       showImageUrl = recordImageUrl;
@@ -124,26 +147,45 @@ class Beatmachine extends React.Component {
     }
 
     return (
-      <div>
+      <div className="beatmachine__container">
         {(() => { // eslint-disable-line
           if (this.state.programState < 4) {
             return (
               <div>
                 <section className="controls" id="controls">
                   <div className="controls__listen">
-                    <h2 id="sound-name" className="listen__title">{this.state.referenceNames[this.state.programState]}</h2>
+                    <h2
+                      id="sound-name"
+                      className="listen__title"
+                    >
+                      {this.state.referenceNames[this.state.programState]}
+                    </h2>
                     <button id="ref-button" className="listen__button" onClick={this.playSampleRecording}>
                       <img src={hearImageUrl} className="listen__image" id="record__image-small"/>
                     </button>
                   </div>
                   <div className="controls__record">
-                    <button id="button-reject" className="record__button record__button--disabled" disabled={!this.state.isDeciding} onClick={this.rejectTrack}>
+                    <button id="button-reject"
+                      className={recordButtonClass}
+                      disabled={!this.state.isDeciding}
+                      onClick={this.rejectTrack}
+                    >
                       <img src={rejectImageUrl} className="record__image-small"/>
                     </button>
-                    <button onMouseDown={this.startRecording} onMouseUp={this.stopRecording} className="button-record" id="button-record">
+                    <button
+                      onMouseDown={this.startRecording}
+                      onMouseUp={this.stopRecording}
+                      className="record__button"
+                      id="button-record"
+                    >
                       <img src={showImageUrl} className="record__image" id="record-image"/>
                     </button>
-                    <button id="button-accept" className="record__button record__button--disabled" disabled={!this.state.isDeciding} onClick={this.acceptTrack}>
+                    <button
+                      id="button-accept"
+                      className={recordButtonClass}
+                      disabled={!this.state.isDeciding}
+                      onClick={this.acceptTrack}
+                    >
                       <img src={acceptImageUrl} className="record__image-small"/>
                     </button>
                   </div>
@@ -154,19 +196,19 @@ class Beatmachine extends React.Component {
           }
         })()}
         <section className="beats-container">
-          <button className="beat-button beat-button--deactivate beat-button-b" disabled={!this.state.isTrackRecorded[0]} onClick={() => this.playTrack(0)}>
+          <button className={trackButtonBClass} disabled={!this.state.isTrackRecorded[0]} onClick={() => this.playTrack(0)}>
             <h2 className="beat-button__title">B</h2>
             <h3 className="beat-button__name">Boots</h3>
           </button>
-          <button className="beat-button beat-button--deactivate beat-button-t" disabled={!this.state.isTrackRecorded[1]} onClick={() => this.playTrack(1)}>
+          <button className={trackButtonTClass} disabled={!this.state.isTrackRecorded[1]} onClick={() => this.playTrack(1)}>
             <h2 className="beat-button__title">T</h2>
             <h3 className="beat-button__name">Tools</h3>
           </button>
-          <button className="beat-button beat-button--deactivate beat-button-k" disabled={!this.state.isTrackRecorded[2]} onClick={() => this.playTrack(2)}>
+          <button className={trackButtonKClass} disabled={!this.state.isTrackRecorded[2]} onClick={() => this.playTrack(2)}>
             <h2 className="beat-button__title">K</h2>
             <h3 className="beat-button__name">Kale</h3>
           </button>
-          <button className="beat-button beat-button--deactivate beat-button-s" disabled={!this.state.isTrackRecorded[3]} onClick={() => this.playTrack(3)}>
+          <button className={trackButtonSClass} disabled={!this.state.isTrackRecorded[3]} onClick={() => this.playTrack(3)}>
             <h2 className="beat-button__title">S</h2>
             <h3 className="beat-button__name">Shoes</h3>
           </button>
@@ -193,7 +235,7 @@ class Beatmachine extends React.Component {
             )
           }
         })()}
-        <div>
+        <div className="beatmachine__recordwaves">
           <ReactMic record={this.state.isRecording} className="sound-wave" onStop={this.onStopRecording} strokeColor="#000000" backgroundColor="#FF4081"/>
         </div>
 

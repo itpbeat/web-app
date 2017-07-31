@@ -1,3 +1,10 @@
+.beatmachine__container {
+  width: 70%;
+  margin: 0 auto;
+}
+.beatmachine__recordwaves {
+  display: none; 
+}
 .controls {
   display: flex;
   flex-direction: column;
@@ -19,7 +26,6 @@
 
 .listen {
  &__image {
-   width: 100%;
    height: 3rem;
  }
  &__title {
@@ -67,8 +73,10 @@
 .record {
   &__button {
     opacity: 1;
+    cursor: pointer;
     &--disabled {
       opacity: 0.5;
+      cursor: default;
     }
   }
   &__image {
