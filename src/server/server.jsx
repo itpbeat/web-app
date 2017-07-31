@@ -9,6 +9,7 @@ const app = express();
 
 // start the server:
 app.listen(8080);
+console.log('running at port 8080');
 app.use('/', express.static('public/')); // set a static file directory
 
 mongoose.connect('mongodb://localhost:27017/beat-itp');
