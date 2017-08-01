@@ -2,8 +2,7 @@ import React from 'react';
 import Header from './Header.jsx';
 import Video from './Video.jsx';
 import Planet from './Planet.jsx';
-
-const testImageUrl = require('../assets/test.png');
+import Beatmachine from './Beatmachine.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -13,10 +12,10 @@ class App extends React.Component {
     return (
       <div>
         <div>
-          <img src={testImageUrl} />
           <Header/>
           <Video/>
           <Planet/>
+          <Beatmachine/>
         </div>
       </div>
     );

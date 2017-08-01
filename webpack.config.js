@@ -20,8 +20,11 @@ var config = {
       exclude: /node_modules/,
       loader: 'eslint-loader'
     }, {
-      test: /\.scss$/,
+      test: /\.css$/,
       loaders: ['style-loader', 'css-loader', 'sass-loader']
+    }, {
+      test: /\.(svg|mp3|wav)$/,
+      loader: 'file-loader'
     }, {
       test: /\.(jpe?g|png|gif|svg)$/,
       use: [{
