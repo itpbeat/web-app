@@ -1,0 +1,17 @@
+
+@font-face {
+  font-family: 'Black';
+  src: url('../fonts/KabelLTStd-Black.ttf')  format('truetype'), /* Safari, Android, iOS */
+}
+.component-header{
+  color: white;
+  font-family: 'Black';
+  text-align: center;
+  padding: 150px 0px 50px 0px;
+}
+.component-header h1{
+  font-size: 80px;
+}
+.component-header h4{
+  font-size: 30px;
+}
