@@ -8,6 +8,7 @@
   background-color: green;
   border-radius: 20px;
   cursor: pointer;
+  text-decoration: none;
 }
 .buttondiv{
   margin: 50px;
