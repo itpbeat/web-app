@@ -6,6 +6,8 @@ import { BrowserRouter as Router, Route, Switch, browserHistory} from 'react-rou
 import App from './App.jsx';
 
 require('../styles/beatmachine.css');
+//require('../styles/App.css');
+
 
 class Main extends React.Component {
   constructor() {

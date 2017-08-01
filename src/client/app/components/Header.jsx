@@ -1,14 +1,11 @@
 import React from 'react';
+import '../styles/header.css';
 
 function Header() {
   return (
     <header className="component-header">
-      <img
-        src="//68.media.tumblr.com/tumblr_ly0iki3NAq1qe6uplo1_1280.jpg"
-        role="presentation"
-        width="80"
-      />
-      Food Planet
+      <h1>YOUR MISSION</h1>
+      <h4>Record all the sounds to fint your new friend Wiggy</h4>
     </header>
   );
 }

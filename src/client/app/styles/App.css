@@ -1,8 +1,5 @@
-
-.backgroundImage: {
-flex: 1,
-width: null,
-height: null,
+.centerContent{
+  text-align: center;
 }
 
 @keyframes App-logo-spin {

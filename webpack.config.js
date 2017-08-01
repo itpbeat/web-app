@@ -26,6 +26,12 @@ var config = {
       test: /\.(svg|mp3|wav)$/,
       loader: 'file-loader'
     }, {
+      test: /\.(ttf|eot|woff|woff2)$/,
+      loader: 'file-loader',
+      options: {
+        name: '[name].[ext]',
+      },
+    },{
       test: /\.(jpe?g|png|gif|svg)$/,
       use: [{
         loader: 'file-loader'
