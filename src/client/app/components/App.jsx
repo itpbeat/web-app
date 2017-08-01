@@ -2,24 +2,19 @@ import React from 'react';
 import Header from './Header.jsx';
 import Video from './Video.jsx';
 import Planet from './Planet.jsx';
+import styles from './App.css';
+const bgImageUrl = require('../assets/star_bg.png');
 
-const testImageUrl = require('../assets/test.png');
-
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
+function App() {
     return (
       <div>
         <div>
-          <img src={testImageUrl} />
+          <Image src={bgImageUrl} style= {styles.backgroundImage} resizeMode={Image.resizeMode.sretch}/>
           <Header/>
           <Video/>
           <Planet/>
         </div>
       </div>
     );
-  }
 }
 export default App;
