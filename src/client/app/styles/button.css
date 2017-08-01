@@ -1,0 +1,18 @@
+.button{
+  font-size: 30px;
+  color: white;
+  font-family: 'Black';
+  margin: 0 auto;
+  display: block;
+  padding: 20px 50px;
+  background-color: green;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.buttondiv{
+  margin: 50px;
+}
+@font-face {
+  font-family: 'Black';
+  src: url('../fonts/KabelLTStd-Black.ttf')  format('truetype'), /* Safari, Android, iOS */
+}
