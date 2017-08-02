@@ -1,5 +1,4 @@
 import React from 'react';
-import { BrowserRouter as Router, Link, Route, Switch, browserHistory} from 'react-router-dom';
 import '../styles/button.css';
 
 
@@ -10,7 +9,7 @@ class Button extends React.Component {
   render(){
     return (
       <div className="buttondiv">
-      <button className="button" onClick={this.props.increaseProgramState}> Start </button>
+      <button className="button" onClick={this.props.increaseProgramState}> START </button>
       </div>
     );
   }

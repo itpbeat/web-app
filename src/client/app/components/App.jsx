@@ -2,14 +2,23 @@ import React from 'react';
 import Header from './Header.jsx';
 import Video from './Video.jsx';
 import Button from './Button.jsx';
+import Lesson from './Lesson.jsx';
 import Beatmachine from './Beatmachine.jsx';
 import '../styles/App.css';
 import { BrowserRouter as Router, Link, Route, Switch, browserHistory} from 'react-router-dom';
 const bgUrl = require('../assets/star_bg.png');
+const green = require('../assets/green_bg.png');
 var background = {
   width: "100%",
+  height: "100%",
   backgroundImage: "url(" +  bgUrl + ")"
 };
+var greenBackground = {
+  width: "100%",
+  height: "100%",
+  backgroundImage: "url(" +  green + ")"
+}
+
 
 class App extends React.Component {
   constructor() {
@@ -20,18 +29,29 @@ class App extends React.Component {
     this.increaseProgramState = this.increaseProgramState.bind(this);
   }
   increaseProgramState() {
+    console.log("increase");
     this.setState({
       programState: this.state.programState + 1
     })
   }
   render() {
     return (
-      <section style = {background}>
         <div>
         {(() => { // eslint-disable-line
           if (this.state.programState == 0) {
             return (
-              <div>
+              <div style = {background}>
+                <Lesson
+                  increaseProgramState = {this.increaseProgramState}
+                />
+              </div>
+            )
+          }
+        })()}
+        {(() => { // eslint-disable-line
+          if (this.state.programState == 1) {
+            return (
+              <div style = {background}>
                 <Header/>
                 <Video/>
                 <Button
@@ -42,15 +62,15 @@ class App extends React.Component {
           }
         })()}
         {(() => { // eslint-disable-line
-          if (this.state.programState == 1) {
+          if (this.state.programState == 2) {
             return (
-              <Beatmachine/>
+              <div style = {greenBackground}>
+                <Beatmachine/>
+              </div>
             )
           }
         })()}
-
         </div>
-      </section>
     );
   }
 }
