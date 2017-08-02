@@ -16,7 +16,7 @@ button {
   display: flex;
   flex-direction: column;
   width: 60%;
-  margin: 3rem 20%;
+  margin: 0 20%;
   }
 .controls__listen {
     display: flex;
