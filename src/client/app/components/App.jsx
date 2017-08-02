@@ -3,8 +3,11 @@ import Header from './Header.jsx';
 import Video from './Video.jsx';
 import Button from './Button.jsx';
 import Beatmachine from './Beatmachine.jsx';
+import Wiggy from './Wiggy.jsx';
 import '../styles/App.css';
+
 import { BrowserRouter as Router, Link, Route, Switch, browserHistory} from 'react-router-dom';
+
 const bgUrl = require('../assets/star_bg.png');
 var background = {
   width: "100%",
@@ -44,7 +47,18 @@ class App extends React.Component {
         {(() => { // eslint-disable-line
           if (this.state.programState == 1) {
             return (
-              <Beatmachine/>
+              <Beatmachine
+                increaseProgramState = {this.increaseProgramState}
+              />
+            )
+          }
+        })()}
+        {(() => { // eslint-disable-line
+          if (this.state.programState == 2) {
+            return (
+              <Wiggy
+                increaseProgramState = {this.increaseProgramState}
+              />
             )
           }
         })()}

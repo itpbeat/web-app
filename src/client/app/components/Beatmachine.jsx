@@ -70,6 +70,14 @@ class Beatmachine extends React.Component {
     });
   }
 
+  componentDidUpdate() {
+      console.log(this.state.noClicks);
+      if(this.state.noClicks == 40 ) {
+        console.log('YAY');
+        this.props.increaseProgramState();
+      }
+  }
+
   playTrack(trackNumber) {
     console.log('playing track ', trackNumber, this.state.isTrackRecorded[trackNumber]);
     if (this.state.isTrackRecorded[trackNumber]) {
