@@ -29,10 +29,12 @@ class Wiggy extends React.Component {
     };
     this.initialize = this.initialize.bind(this);
     this.playTrack = this.playTrack.bind(this);
+    this.handleGlobalKeydown = this.handleGlobalKeydown.bind(this);
   }
 
   componentDidMount() {
     this.initialize();
+    document.addEventListener('keydown', this.handleGlobalKeydown, false);
   }
   initialize() {
     let tempTrack = null;
@@ -45,7 +47,28 @@ class Wiggy extends React.Component {
       tracks: tempTracks
     })
   }
-
+  handleGlobalKeydown(e) {
+    if (e.keyCode === 66) { // press B
+      e.preventDefault();
+      e.stopPropagation();
+      this.playTrack(0);
+    }
+    if (e.keyCode === 84) { // press T
+      e.preventDefault();
+      e.stopPropagation();
+      this.playTrack(1);
+    }
+    if (e.keyCode === 75) { // press K
+      e.preventDefault();
+      e.stopPropagation();
+      this.playTrack(2);
+    }
+    if (e.keyCode === 83) { // press S
+      e.preventDefault();
+      e.stopPropagation();
+      this.playTrack(3);
+    }
+  }
   playTrack(trackNumber) {
     console.log(this.state.tracks[trackNumber]);
     this.state.tracks[trackNumber].play();
