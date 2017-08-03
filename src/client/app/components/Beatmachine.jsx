@@ -59,12 +59,20 @@ class Beatmachine extends React.Component {
     this.playRecording = this.playRecording.bind(this);
     this.playSampleRecording = this.playSampleRecording.bind(this);
     this.handleGlobalKeydown = this.handleGlobalKeydown.bind(this);
+    this.handleGlobalMouseUp = this.handleGlobalMouseUp.bind(this);
   }
   componentDidMount() {
     let tempTrack = null;
     tempTrack = new Audio(countoffSound);
     this.setState({countoffTrack: tempTrack});
     document.addEventListener('keydown', this.handleGlobalKeydown, false);
+    document.addEventListener('mouseup', this.handleGlobalMouseUp, false);
+  }
+  handleGlobalMouseUp() {
+    console.log('mouseLifted');
+    if(this.state.isRecording) {
+      this.stopRecording();
+    }
   }
   handleGlobalKeydown(e) {
     if (e.keyCode === 66) { // press B
