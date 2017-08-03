@@ -6,6 +6,7 @@ const bootsSound = require('../assets/boots.wav');
 const toolsSound = require('../assets/tools.wav');
 const kaleSound = require('../assets/kale.wav');
 const shoesSound = require('../assets/shoes.wav');
+const countoffSound = require('../assets/metronome.wav');
 const hearImageUrl = require('../assets/speaker.png');
 const rejectImageUrl = require('../assets/reject.png');
 const recordImageUrl = require('../assets/rec.png');
@@ -20,6 +21,7 @@ class Beatmachine extends React.Component {
       isRecording: false,
       isDeciding: false,
       noClicks: 0,
+      countoffTrack: null,
       referenceTracks: {
         0: bootsSound,
         1: toolsSound,
@@ -56,6 +58,11 @@ class Beatmachine extends React.Component {
     this.onStopRecording = this.onStopRecording.bind(this);
     this.playRecording = this.playRecording.bind(this);
     this.playSampleRecording = this.playSampleRecording.bind(this);
+  }
+  componentDidMount() {
+    let tempTrack = null;
+    tempTrack = new Audio(countoffSound);
+    this.setState({countoffTrack: tempTrack});
   }
   acceptTrack() {
     const recordedBlobURL = this.state.recordedBlobURL;
@@ -103,7 +110,16 @@ class Beatmachine extends React.Component {
   startRecording() {
     if (!this.state.isDeciding) {
       console.log('start');
-      this.setState({isRecording: true});
+      $(".circle").addClass("circle--blue");
+      $(".circle__left").addClass("circle__half");
+      $(".circle__right").addClass("circle__half circle__half--right");
+      this.state.countoffTrack.play();
+      let that = this;
+      setTimeout(function(){
+        console.log("real start");
+         that.setState({isRecording: true});
+       }, 1800);
+
     } else {
       this.playRecording();
     }
@@ -112,6 +128,9 @@ class Beatmachine extends React.Component {
   stopRecording() {
     if (!this.state.isDeciding) {
       console.log('stop');
+      $(".circle").removeClass("circle--blue");
+      $(".circle__left").removeClass("circle__half");
+      $(".circle__right").removeClass("circle__half circle__half--right");
       this.setState({isRecording: false, isDeciding: true});
     }
   }
@@ -186,7 +205,12 @@ class Beatmachine extends React.Component {
                       className="record__button"
                       id="button-record"
                     >
-                      <img src={showImageUrl} className="record__image" id="record-image"/>
+                      <div className="circle">
+                        <div className="circle__left"></div>
+                        <div className="circle__right"></div>
+                        <img src={showImageUrl} className="record__image" id="record-image"/>
+                      </div>
+
                     </button>
                     <button
                       id="button-accept"
