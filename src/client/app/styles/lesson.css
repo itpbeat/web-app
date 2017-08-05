@@ -1,2 +1,31 @@
-.button{
+.planetImg{
+  height: 60%;
+  padding: 10% 0 0 0;
+  display: block;
+  margin: auto;
+
+}
+.visitButton{
+  z-index: 2;
+  position: absolute;
+  bottom: 25%;
+  right: 45%;
+  font-size: 25px;
+  color: black;
+  font-family: 'Black';
+  margin: 0 auto;
+  display: block;
+  padding: 15px 30px;
+  background-color: white;
+  border-radius: 30px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.logoImg{
+  width: 7%;
+  height: auto;
+  z-index: 1;
+  position: absolute;
+  bottom: 2%;
+  right: 2%;
 }

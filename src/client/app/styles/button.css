@@ -13,7 +13,3 @@
 .buttondiv{
   margin: 50px;
 }
-@font-face {
-  font-family: 'Black';
-  src: url('../fonts/KabelLTStd-Black.ttf')  format('truetype'), /* Safari, Android, iOS */
-}

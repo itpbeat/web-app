@@ -1,7 +1,5 @@
 import React from 'react';
-import Header from './Header.jsx';
 import Video from './Video.jsx';
-import Button from './Button.jsx';
 import Lesson from './Lesson.jsx';
 import Beatmachine from './Beatmachine.jsx';
 import Wiggy from './Wiggy.jsx';
@@ -14,12 +12,12 @@ const green = require('../assets/green_bg.png');
 var background = {
   width: "100%",
   height: "100%",
-  backgroundImage: "url(" +  bgUrl + ")"
+  backgroundImage: "url(" +  bgUrl + ")",
 };
 var greenBackground = {
   width: "100%",
   height: "100%",
-  backgroundImage: "url(" +  green + ")"
+  backgroundImage: "url(" +  green + ")",
 }
 
 
@@ -41,7 +39,7 @@ class App extends React.Component {
     return (
         <div>
         {(() => { // eslint-disable-line
-          if (this.state.programState == 0) {
+          if (this.state.programState == 1) {
             return (
               <div style = {background}>
                 <Lesson
@@ -52,12 +50,10 @@ class App extends React.Component {
           }
         })()}
         {(() => { // eslint-disable-line
-          if (this.state.programState == 1) {
+          if (this.state.programState == 0) {
             return (
               <div style = {background}>
-                <Header/>
-                <Video/>
-                <Button
+                <Video
                   increaseProgramState = {this.increaseProgramState}
                 />
               </div>

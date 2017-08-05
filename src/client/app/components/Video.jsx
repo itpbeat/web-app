@@ -1,6 +1,11 @@
 import React from 'react';
 import YouTube from 'react-youtube';
+import '../styles/header.css';
+
 class Video extends React.Component {
+  constructor(props){
+    super(props);
+  }
   render() {
     const opts = {
       height: '500',
@@ -11,12 +16,17 @@ class Video extends React.Component {
     };
 
     return (
-      <div className='centerContent'>
-      <YouTube
-        videoId="b9-3N383eRY"
-        opts={opts}
-        onReady={this._onReady}
-      />
+      <div className="centerContent">
+        <header className="component-header">
+          <h1>YOUR MISSION</h1>
+          <h4>Record all the sounds to fint your new friend Wiggy</h4>
+        </header>
+        <YouTube
+          videoId="b9-3N383eRY"
+          opts={opts}
+          onReady={this._onReady}/>
+        <button className="startButton" onClick={this.props.increaseProgramState}> START </button>
+
       </div>
     );
   }

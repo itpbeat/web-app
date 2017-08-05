@@ -6,12 +6,26 @@
 .component-header{
   color: white;
   font-family: 'Black';
-  text-align: center;
-  padding: 150px 0px 50px 0px;
+  padding: 40px 0 20px 0;
 }
 .component-header h1{
-  font-size: 80px;
+  font-size: 50px;
 }
 .component-header h4{
-  font-size: 30px;
+  font-size: 20px;
+}
+.startButton{
+  font-size: 25px;
+  color: white;
+  font-family: 'Black';
+  margin: 20px auto;
+  display: block;
+  padding: 15px 30px;
+  background-color: green;
+  border-radius: 30px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.centerContent{
+  text-align: center;
 }
