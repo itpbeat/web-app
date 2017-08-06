@@ -1,0 +1,27 @@
+
+.wiggy-button {
+  color: #fff;
+  margin: 0 2%;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+
+  font-family: 'Black';
+}
+.wiggy-button-b {
+  background-color: #793b9c;
+}
+.wiggy-button-t {
+  background-color: #1f68ac;
+}
+.wiggy-button-k {
+  background-color: #37af72;
+}
+.wiggy-button-s {
+  background-color: #c2992d;
+}
+
+.wiggy-button__title {
+  font-family: 'Black';
+  font-size: 2rem;
+}

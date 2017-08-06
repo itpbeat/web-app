@@ -1,6 +1,7 @@
 import React from 'react';
 import {ReactMic} from 'react-mic';
 var classNames = require('classnames');
+import '../styles/Wiggy.css';
 
 const bootsSound = require('../assets/boots.wav');
 const toolsSound = require('../assets/tools.wav');
@@ -76,25 +77,21 @@ class Wiggy extends React.Component {
   }
 
   render() {
-    const recordButtonClass = classNames({
-      'record__button': true,
-      'record__button--disabled': !this.state.isDeciding
-    });
     const trackButtonBClass = classNames({
-      'beat-button': true,
-      'beat-button-b': true
+      'wiggy-button': true,
+      'wiggy-button-b': true
     });
     const trackButtonTClass = classNames({
-      'beat-button': true,
-      'beat-button-t': true
+      'wiggy-button': true,
+      'wiggy-button-t': true
     });
     const trackButtonKClass = classNames({
-      'beat-button': true,
-      'beat-button-k': true
+      'wiggy-button': true,
+      'wiggy-button-k': true
     });
     const trackButtonSClass = classNames({
-      'beat-button': true,
-      'beat-button-s': true
+      'wiggy-button': true,
+      'wiggy-button-s': true
     });
 
     return (
