@@ -107,6 +107,7 @@ class Wiggy extends React.Component {
           <button className={trackButtonTClass} onClick={() => this.playTrack(1)}>
             <h2 className="wiggy-button__title">T</h2>
           </button>
+          <br/>
           <button className={trackButtonKClass} onClick={() => this.playTrack(2)}>
             <h2 className="wiggy-button__title">K</h2>
           </button>

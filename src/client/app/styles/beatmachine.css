@@ -16,7 +16,7 @@ button {
   width: 70%;
   margin: 20px 15%;
   background-color: #eeeeee;
-  padding: 20px 0;
+  padding: 20px 20px;
   border-radius: 30px;
 }
 .beatmachine__recordwaves {
@@ -143,6 +143,7 @@ button {
   margin: 3rem 20%;
   display: flex;
   flex-direction: column;
+  font-family: "Black";
 }
 .count__tally {
   display: flex;
