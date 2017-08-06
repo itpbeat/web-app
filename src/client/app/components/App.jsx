@@ -39,7 +39,7 @@ class App extends React.Component {
     return (
         <div>
         {(() => { // eslint-disable-line
-          if (this.state.programState == 2) {
+          if (this.state.programState == 0) {
             return (
               <div style = {background}>
                 <Lesson
@@ -61,7 +61,7 @@ class App extends React.Component {
           }
         })()}
         {(() => { // eslint-disable-line
-          if (this.state.programState == 0) {
+          if (this.state.programState == 2) {
             return (
               <div style = {greenBackground}>
                 <Beatmachine
