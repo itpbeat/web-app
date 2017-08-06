@@ -9,15 +9,17 @@ button {
   color: White;
   font-family: "Black";
   text-align: center;
-  padding: 20px 0;
+  padding-top: 5%;
+  font-size: 5rem;
 }
 .beatmachine__container {
   background: #f1f1f1;
   width: 70%;
-  margin: 20px 15%;
+  margin: 5% auto;
   background-color: #eeeeee;
-  padding: 20px 20px;
+  padding: 5% 0;
   border-radius: 30px;
+  margin-top: 1rem;
 }
 .beatmachine__recordwaves {
   display: none;
@@ -147,21 +149,31 @@ button {
 }
 .count__tally {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: baseline;
+  text-align: -webkit-center;
+  padding-top: 5%;
 }
 .count__inst {
   text-align: center;
   font-size: 3rem;
 }
 .count__number {
+  font-family: 'Black';
+  border-radius: 50%;
   background: #000;
   color: #fff;
   font-size: 5rem;
+  width: 6rem;
+  height: 6rem;
+  padding: 1rem 0.5rem 0 0.5rem;
 }
 .count__total {
   font-size: 3rem;
+}
+.count__total-30 {
+    color: #ec2525;
 }
 
 .circle {
@@ -176,7 +188,12 @@ button {
 .circle--blue {
   background-color: #79baf3;
 }
-
+.circle--orange {
+  background-color: #edcd1b;
+}
+.circle--green {
+  background-color: #59df26
+}
 .circle__half {
   height: 14rem;
   width: 7rem;
@@ -212,12 +229,14 @@ button {
   font-family: 'Black';
   text-align: center;
   font-size: 2rem;
+  padding-bottom: 2rem;
 }
 
 .instruction__record {
   font-family: 'Black';
   text-align: center;
   font-size: 2rem;
+  padding-bottom: 2rem;
 }
 
 /* show half of circle half of the time */

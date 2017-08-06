@@ -46,6 +46,13 @@ class Beatmachine extends React.Component {
         2: false,
         3: false
       },
+      messages: {
+        1: "Record 1st Sound",
+        2: "Record 2nd Sound",
+        3: "Record 3rd Sound",
+        4: "Record 4th Sound",
+        5: "Play Together"
+      },
       tempRecordedBlobURL: null,
       currentAudio: null
     };
@@ -97,6 +104,7 @@ class Beatmachine extends React.Component {
     }
   }
   acceptTrack() {
+    $(".circle").removeClass("circle--green");
     const recordedBlobURL = this.state.recordedBlobURL;
     recordedBlobURL[this.state.programState] = this.state.tempRecordedBlobURL;
     const isTrackRecorded = this.state.isTrackRecorded;
@@ -110,14 +118,14 @@ class Beatmachine extends React.Component {
   }
 
   componentDidUpdate() {
-      if(this.state.noClicks == 40 ) {
+      if(this.state.noClicks == 30 ) {
         this.props.increaseProgramState();
       }
   }
 
   playTrack(trackNumber) {
     console.log('playing track ', trackNumber, this.state.isTrackRecorded[trackNumber]);
-    if(this.state.noClicks < 40) {
+    if(this.state.noClicks < 30) {
       if (this.state.isTrackRecorded[trackNumber]) {
         const audioTrack = new Audio(this.state.recordedBlobURL[trackNumber]);
         audioTrack.play();
@@ -129,6 +137,7 @@ class Beatmachine extends React.Component {
   }
 
   rejectTrack() {
+    $(".circle").removeClass("circle--green");
     this.setState({isDeciding: false});
   }
   playSampleRecording() {
@@ -140,13 +149,14 @@ class Beatmachine extends React.Component {
   }
   startRecording() {
     if (!this.state.isDeciding) {
-      $(".circle").addClass("circle--blue");
+      $(".circle").addClass("circle--orange");
       $(".circle__left").addClass("circle__half");
       $(".circle__right").addClass("circle__half circle__half--right");
       this.state.countoffTrack.play();
       let that = this;
       setTimeout(function(){
          that.setState({isRecording: true});
+         $(".circle").addClass("circle--green");
        }, 1800);
 
     } else {
@@ -156,7 +166,7 @@ class Beatmachine extends React.Component {
 
   stopRecording() {
     if (!this.state.isDeciding) {
-      $(".circle").removeClass("circle--blue");
+      $(".circle").removeClass("circle--orange");
       $(".circle__left").removeClass("circle__half");
       $(".circle__right").removeClass("circle__half circle__half--right");
       this.setState({isRecording: false, isDeciding: true});
@@ -224,7 +234,7 @@ class Beatmachine extends React.Component {
     return (
       <div>
         <h1 className="beatmachine__inst">
-          Record {this.state.programState+1} Sound
+          {this.state.messages[this.state.programState+1]}
         </h1>
         <div className="beatmachine__container">
           {(() => { // eslint-disable-line
@@ -344,7 +354,7 @@ class Beatmachine extends React.Component {
                         {this.state.noClicks}
                       </p>
                       <p className="count__total" id="total-counts">
-                        of 40
+                        <span className="count__total-30">30</span> Times!
                       </p>
                     </div>
 
