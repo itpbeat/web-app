@@ -1,7 +1,7 @@
 import React from 'react';
 import {ReactMic} from 'react-mic';
 var classNames = require('classnames');
-
+import '../styles/wiggy.css';
 const bootsSound = require('../assets/boots.wav');
 const toolsSound = require('../assets/tools.wav');
 const kaleSound = require('../assets/kale.wav');
@@ -99,6 +99,9 @@ class Wiggy extends React.Component {
 
     return (
       <div className="wiggy__container">
+        <header className="component-header">
+          <h1>YOU FOUND WIGGY!</h1>
+        </header>
         <img className="wiggy__image" src={wiggyImageUrl}/>
         <section className="wiggy-container">
           <button className={trackButtonBClass} onClick={() => this.playTrack(0)}>
