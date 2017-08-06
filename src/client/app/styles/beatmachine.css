@@ -5,13 +5,18 @@ button {
   border: none;
   background: none;
 }
+.beatmachine__inst{
+  color: White;
+  font-family: "Black";
+  text-align: center;
+  padding: 20px 0;
+}
 .beatmachine__container {
   background: #f1f1f1;
   width: 70%;
   margin: 20px 15%;
   background-color: #eeeeee;
   padding: 20px 0;
-  position: absolute;
   border-radius: 30px;
 }
 .beatmachine__recordwaves {

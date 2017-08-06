@@ -224,7 +224,7 @@ class Beatmachine extends React.Component {
     return (
       <div>
         <h1 className="beatmachine__inst">
-          Record {this.state.programState}
+          Record {this.state.programState+1} Sound
         </h1>
         <div className="beatmachine__container">
           {(() => { // eslint-disable-line
