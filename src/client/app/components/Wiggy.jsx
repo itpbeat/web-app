@@ -1,7 +1,7 @@
 import React from 'react';
 import {ReactMic} from 'react-mic';
 var classNames = require('classnames');
-import '../styles/wiggy.css';
+import '../styles/Wiggy.css';
 
 const bootsSound = require('../assets/boots.wav');
 const toolsSound = require('../assets/tools.wav');
