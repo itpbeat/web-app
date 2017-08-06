@@ -6,6 +6,7 @@ const bootsSound = require('../assets/boots.wav');
 const toolsSound = require('../assets/tools.wav');
 const kaleSound = require('../assets/kale.wav');
 const shoesSound = require('../assets/shoes.wav');
+const countoffSound = require('../assets/metronome.wav');
 const hearImageUrl = require('../assets/speaker.png');
 const rejectImageUrl = require('../assets/reject.png');
 const recordImageUrl = require('../assets/rec.png');
@@ -20,6 +21,7 @@ class Beatmachine extends React.Component {
       isRecording: false,
       isDeciding: false,
       noClicks: 0,
+      countoffTrack: null,
       referenceTracks: {
         0: bootsSound,
         1: toolsSound,
@@ -56,6 +58,35 @@ class Beatmachine extends React.Component {
     this.onStopRecording = this.onStopRecording.bind(this);
     this.playRecording = this.playRecording.bind(this);
     this.playSampleRecording = this.playSampleRecording.bind(this);
+    this.handleGlobalKeydown = this.handleGlobalKeydown.bind(this);
+  }
+  componentDidMount() {
+    let tempTrack = null;
+    tempTrack = new Audio(countoffSound);
+    this.setState({countoffTrack: tempTrack});
+    document.addEventListener('keydown', this.handleGlobalKeydown, false);
+  }
+  handleGlobalKeydown(e) {
+    if (e.keyCode === 66) { // press B
+      e.preventDefault();
+      e.stopPropagation();
+      this.playTrack(0);
+    }
+    if (e.keyCode === 84) { // press T
+      e.preventDefault();
+      e.stopPropagation();
+      this.playTrack(1);
+    }
+    if (e.keyCode === 75) { // press K
+      e.preventDefault();
+      e.stopPropagation();
+      this.playTrack(2);
+    }
+    if (e.keyCode === 83) { // press S
+      e.preventDefault();
+      e.stopPropagation();
+      this.playTrack(3);
+    }
   }
   acceptTrack() {
     const recordedBlobURL = this.state.recordedBlobURL;
@@ -71,22 +102,21 @@ class Beatmachine extends React.Component {
   }
 
   componentDidUpdate() {
-      console.log(this.state.noClicks);
       if(this.state.noClicks == 40 ) {
-        console.log('YAY');
         this.props.increaseProgramState();
       }
   }
 
   playTrack(trackNumber) {
     console.log('playing track ', trackNumber, this.state.isTrackRecorded[trackNumber]);
-    if (this.state.isTrackRecorded[trackNumber]) {
-      const audioTrack = new Audio(this.state.recordedBlobURL[trackNumber]);
-      audioTrack.play();
-    }
-    if (this.state.programState >= 4){
-      console.log(this.state.noClicks);
-      this.setState({noClicks: this.state.noClicks + 1});
+    if(this.state.noClicks < 40) {
+      if (this.state.isTrackRecorded[trackNumber]) {
+        const audioTrack = new Audio(this.state.recordedBlobURL[trackNumber]);
+        audioTrack.play();
+      }
+      if (this.state.programState >= 4){
+        this.setState({noClicks: this.state.noClicks + 1});
+      }
     }
   }
 
@@ -102,8 +132,15 @@ class Beatmachine extends React.Component {
   }
   startRecording() {
     if (!this.state.isDeciding) {
-      console.log('start');
-      this.setState({isRecording: true});
+      $(".circle").addClass("circle--blue");
+      $(".circle__left").addClass("circle__half");
+      $(".circle__right").addClass("circle__half circle__half--right");
+      this.state.countoffTrack.play();
+      let that = this;
+      setTimeout(function(){
+         that.setState({isRecording: true});
+       }, 1800);
+
     } else {
       this.playRecording();
     }
@@ -111,7 +148,9 @@ class Beatmachine extends React.Component {
 
   stopRecording() {
     if (!this.state.isDeciding) {
-      console.log('stop');
+      $(".circle").removeClass("circle--blue");
+      $(".circle__left").removeClass("circle__half");
+      $(".circle__right").removeClass("circle__half circle__half--right");
       this.setState({isRecording: false, isDeciding: true});
     }
   }
@@ -186,7 +225,12 @@ class Beatmachine extends React.Component {
                       className="record__button"
                       id="button-record"
                     >
-                      <img src={showImageUrl} className="record__image" id="record-image"/>
+                      <div className="circle">
+                        <div className="circle__left"></div>
+                        <div className="circle__right"></div>
+                        <img src={showImageUrl} className="record__image" id="record-image"/>
+                      </div>
+
                     </button>
                     <button
                       id="button-accept"
