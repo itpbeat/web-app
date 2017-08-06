@@ -10,16 +10,17 @@ import { BrowserRouter as Router, Link, Route, Switch, browserHistory} from 'rea
 const bgUrl = require('../assets/star_bg.png');
 const green = require('../assets/green_bg.png');
 var background = {
-  width: "100%",
-  height: "100%",
+  backgroundSize: "cover",
+  backgroundPosition: "center center",
+  min-height: "100%",
   backgroundImage: "url(" +  bgUrl + ")",
 };
 var greenBackground = {
-  width: "100%",
-  height: "100%",
+  backgroundSize: "cover",
+  backgroundPosition: "center center",
+  min-height: "100%",
   backgroundImage: "url(" +  green + ")",
-}
-
+};
 
 class App extends React.Component {
   constructor() {
