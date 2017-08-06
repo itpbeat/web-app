@@ -6,6 +6,7 @@ button {
   background: none;
 }
 .beatmachine__container {
+  background: #f1f1f1;
   width: 70%;
   margin: 20px 15%;
   background-color: #eeeeee;
@@ -15,6 +16,11 @@ button {
 }
 .beatmachine__recordwaves {
   display: none;
+}
+.beat-button__container {
+  display: flex;
+  flex-direction: column;
+  width: 18%;
 }
 .controls {
   display: flex;
@@ -42,6 +48,7 @@ button {
  }
 .listen__title {
    font-size: 3rem;
+   font-family: 'Black';
  }
 
 
@@ -53,10 +60,10 @@ button {
 
 .beat-button {
   color: #fff;
-  width: 18%;
   margin: 0 2%;
   border-radius: 5px;
-  padding: 3rem 0;
+  padding: 2rem 0;
+  font-family: 'Black';
 }
 .beat-button-b {
   background-color: #793b9c;
@@ -75,12 +82,31 @@ button {
 }
 .beat-button__name {
   font-size: 2rem;
+  font-family: 'Black';
+  text-align: center;
 }
 
 
 .beat-button--deactivate {
   background-color: #d1d3d2;
 }
+
+.button-name-b {
+  color: #793b9c;
+}
+.button-name-t {
+  color: #1f68ac;
+}
+.button-name-k {
+  color: #37af72;
+}
+.button-name-s {
+  color: #c2992d;
+}
+.button-name--deactivate {
+  color: #d1d3d2;
+}
+
 
 
 
@@ -174,6 +200,18 @@ button {
 
 .circle .circle__half--right:before {
   animation-name: rotate-circle-half--right;
+}
+
+.instruction__play {
+  font-family: 'Black';
+  text-align: center;
+  font-size: 2rem;
+}
+
+.instruction__record {
+  font-family: 'Black';
+  text-align: center;
+  font-size: 2rem;
 }
 
 /* show half of circle half of the time */
