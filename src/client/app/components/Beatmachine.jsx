@@ -186,6 +186,26 @@ class Beatmachine extends React.Component {
       'beat-button-s': true,
       'beat-button--deactivate': !this.state.isTrackRecorded[3]
     });
+    const buttonNameBClass = classNames({
+      'beat-button__name': true,
+      'button-name-b': true,
+      'button-name--deactivate': !this.state.isTrackRecorded[0]
+    });
+    const buttonNameTClass = classNames({
+      'beat-button__name': true,
+      'button-name-t': true,
+      'button-name--deactivate': !this.state.isTrackRecorded[1]
+    });
+    const buttonNameKClass = classNames({
+      'beat-button__name': true,
+      'button-name-k': true,
+      'button-name--deactivate': !this.state.isTrackRecorded[2]
+    });
+    const buttonNameSClass = classNames({
+      'beat-button__name': true,
+      'button-name-s': true,
+      'button-name--deactivate': !this.state.isTrackRecorded[3]
+    });
     let showImageUrl = null;
     if (!this.state.isDeciding) {
       showImageUrl = recordImageUrl;
@@ -194,103 +214,142 @@ class Beatmachine extends React.Component {
     }
 
     return (
-      <div className="beatmachine__container">
-        {(() => { // eslint-disable-line
-          if (this.state.programState < 4) {
-            return (
-              <div>
-                <section className="controls" id="controls">
-                  <div className="controls__listen">
-                    <h2
+      <div>
+        <h1 className="beatmachine__inst">
+          Record {this.state.programState}
+        </h1>
+        <div className="beatmachine__container">
+          {(() => { // eslint-disable-line
+            if (this.state.programState < 4) {
+              return (
+                <div>
+
+                  <section className="controls" id="controls">
+                    <h1
                       id="sound-name"
-                      className="listen__title"
+                      className="instruction__record"
                     >
-                      {this.state.referenceNames[this.state.programState]}
-                    </h2>
-                    <button id="ref-button" className="listen__button" onClick={this.playSampleRecording}>
-                      <img src={hearImageUrl} className="listen__image" id="record__image-small"/>
-                    </button>
-                  </div>
-                  <div className="controls__record">
-                    <button id="button-reject"
-                      className={recordButtonClass}
-                      disabled={!this.state.isDeciding}
-                      onClick={this.rejectTrack}
-                    >
-                      <img src={rejectImageUrl} className="record__image-small"/>
-                    </button>
-                    <button
-                      onMouseDown={this.startRecording}
-                      onMouseUp={this.stopRecording}
-                      className="record__button"
-                      id="button-record"
-                    >
-                      <div className="circle">
-                        <div className="circle__left"></div>
-                        <div className="circle__right"></div>
-                        <img src={showImageUrl} className="record__image" id="record-image"/>
-                      </div>
+                      Record, Replay and Save
+                    </h1>
+                    <div className="controls__listen">
 
-                    </button>
-                    <button
-                      id="button-accept"
-                      className={recordButtonClass}
-                      disabled={!this.state.isDeciding}
-                      onClick={this.acceptTrack}
+                      <button id="ref-button" className="listen__button" onClick={this.playSampleRecording}>
+                        <img src={hearImageUrl} className="listen__image" id="record__image-small"/>
+                      </button>
+                      <h1
+                        id="sound-name"
+                        className="listen__title"
+                      >
+                        {this.state.referenceNames[this.state.programState]}
+                      </h1>
+                    </div>
+                    <div className="controls__record">
+                      <button id="button-reject"
+                        className={recordButtonClass}
+                        disabled={!this.state.isDeciding}
+                        onClick={this.rejectTrack}
+                      >
+                        <img src={rejectImageUrl} className="record__image-small"/>
+                      </button>
+                      <button
+                        onMouseDown={this.startRecording}
+                        onMouseUp={this.stopRecording}
+                        className="record__button"
+                        id="button-record"
+                      >
+                        <div className="circle">
+                          <div className="circle__left"></div>
+                          <div className="circle__right"></div>
+                          <img src={showImageUrl} className="record__image" id="record-image"/>
+                        </div>
+
+                      </button>
+                      <button
+                        id="button-accept"
+                        className={recordButtonClass}
+                        disabled={!this.state.isDeciding}
+                        onClick={this.acceptTrack}
+                      >
+                        <img src={acceptImageUrl} className="record__image-small"/>
+                      </button>
+                    </div>
+                  </section>
+
+                </div>
+              )
+            }
+          })()}
+          {(() => { // eslint-disable-line
+            if (this.state.programState >= 4) {
+              return (
+                <div>
+                    <h1
+                      id="sound-name"
+                      className="instruction__play"
                     >
-                      <img src={acceptImageUrl} className="record__image-small"/>
-                    </button>
-                  </div>
-                </section>
+                      Time to freestyle and play together with your words to find Wiggy
+                    </h1>
+                </div>
+              )
+            }
+          })()}
+          <section className="beats-container">
+            <div className="beat-button__container">
+              <h3 className={buttonNameBClass}>PRESS</h3>
+              <button className={trackButtonBClass} disabled={!this.state.isTrackRecorded[0]} onClick={() => this.playTrack(0)}>
 
-              </div>
-            )
-          }
-        })()}
-        <section className="beats-container">
-          <button className={trackButtonBClass} disabled={!this.state.isTrackRecorded[0]} onClick={() => this.playTrack(0)}>
-            <h2 className="beat-button__title">B</h2>
-            <h3 className="beat-button__name">Boots</h3>
-          </button>
-          <button className={trackButtonTClass} disabled={!this.state.isTrackRecorded[1]} onClick={() => this.playTrack(1)}>
-            <h2 className="beat-button__title">T</h2>
-            <h3 className="beat-button__name">Tools</h3>
-          </button>
-          <button className={trackButtonKClass} disabled={!this.state.isTrackRecorded[2]} onClick={() => this.playTrack(2)}>
-            <h2 className="beat-button__title">K</h2>
-            <h3 className="beat-button__name">Kale</h3>
-          </button>
-          <button className={trackButtonSClass} disabled={!this.state.isTrackRecorded[3]} onClick={() => this.playTrack(3)}>
-            <h2 className="beat-button__title">S</h2>
-            <h3 className="beat-button__name">Shoes</h3>
-          </button>
-        </section>
-        {(() => { // eslint-disable-line
-          if (this.state.programState >= 4) {
-            return (
-              <div>
-                <section className="count-container" id="counts">
-                  <h3 className="count__inst">
-                    Press B, T, K, S
-                  </h3>
-                  <div className="count__tally">
-                    <p className="count__number" id="count-no">
-                      {this.state.noClicks}
-                    </p>
-                    <p className="count__total" id="total-counts">
-                      of 40
-                    </p>
-                  </div>
+                <h2 className="beat-button__title">B</h2>
+              </button>
+            </div>
+            <div className="beat-button__container">
+              <h3 className={buttonNameTClass}>PRESS</h3>
+              <button className={trackButtonTClass} disabled={!this.state.isTrackRecorded[1]} onClick={() => this.playTrack(1)}>
 
-                </section>
-              </div>
-            )
-          }
-        })()}
-        <div className="beatmachine__recordwaves">
-          <ReactMic record={this.state.isRecording} className="sound-wave" onStop={this.onStopRecording} strokeColor="#000000" backgroundColor="#FF4081"/>
+                <h2 className="beat-button__title">T</h2>
+              </button>
+            </div>
+            <div className="beat-button__container">
+              <h3 className={buttonNameKClass}>PRESS</h3>
+              <button className={trackButtonKClass} disabled={!this.state.isTrackRecorded[2]} onClick={() => this.playTrack(2)}>
+
+                <h2 className="beat-button__title">K</h2>
+              </button>
+            </div>
+            <div className="beat-button__container">
+              <h3 className={buttonNameSClass}>PRESS</h3>
+              <button className={trackButtonSClass} disabled={!this.state.isTrackRecorded[3]} onClick={() => this.playTrack(3)}>
+
+                <h2 className="beat-button__title">S</h2>
+              </button>
+            </div>
+          </section>
+          {(() => { // eslint-disable-line
+            if (this.state.programState >= 4) {
+              return (
+                <div>
+                  <section className="count-container" id="counts">
+                    <h3 className="count__inst">
+                      Press B, T, K, S
+                    </h3>
+                    <div className="count__tally">
+                      <p className="count__number" id="count-no">
+                        {this.state.noClicks}
+                      </p>
+                      <p className="count__total" id="total-counts">
+                        of 40
+                      </p>
+                    </div>
+
+                  </section>
+                </div>
+              )
+            }
+          })()}
+          <div className="beatmachine__recordwaves">
+            <ReactMic record={this.state.isRecording} className="sound-wave" onStop={this.onStopRecording} strokeColor="#000000" backgroundColor="#FF4081"/>
+          </div>
+
         </div>
-
       </div>
     );
   }
