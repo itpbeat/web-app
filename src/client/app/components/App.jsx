@@ -12,14 +12,14 @@ const green = require('../assets/green_bg.png');
 var background = {
   backgroundSize: "cover",
   backgroundPosition: "center center",
-  min-height: "100%",
-  backgroundImage: "url(" +  bgUrl + ")",
+  minHeight: "100%",
+  backgroundImage: "url(" +  bgUrl + ")"
 };
 var greenBackground = {
   backgroundSize: "cover",
   backgroundPosition: "center center",
-  min-height: "100%",
-  backgroundImage: "url(" +  green + ")",
+  minHeight: "100%",
+  backgroundImage: "url(" +  green + ")"
 };
 
 class App extends React.Component {
