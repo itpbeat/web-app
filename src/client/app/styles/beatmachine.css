@@ -180,10 +180,10 @@ button {
   display: inline-flex;
   overflow: hidden;
   position: relative;
-  height: 14rem;
-  width: 14rem;
+  height: 10rem;
+  width: 10rem;
   background-color: #e1e2e1;
-  border-radius: 7rem 7rem;
+  border-radius: 5rem 5rem;
 }
 .circle--blue {
   background-color: #79baf3;
@@ -195,8 +195,8 @@ button {
   background-color: #59df26
 }
 .circle__half {
-  height: 14rem;
-  width: 7rem;
+  height: 10rem;
+  width: 5rem;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -207,7 +207,7 @@ button {
   width: inherit;
   position: absolute;
   content: "";
-  border-radius: 14rem 0 0 14rem;
+  border-radius: 10rem 0 0 10rem;
   background-color: #e1e2e1;
   transform-origin: 100% 50%;
   /* hidden by default */
