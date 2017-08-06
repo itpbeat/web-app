@@ -10,14 +10,14 @@ button {
   font-family: "Black";
   text-align: center;
   padding-top: 5%;
-  font-size: 5rem;
+  font-size: 2rem;
 }
 .beatmachine__container {
   background: #f1f1f1;
   width: 70%;
   margin: 5% auto;
   background-color: #eeeeee;
-  padding: 5% 0;
+  padding: 2% 0;
   border-radius: 30px;
   margin-top: 1rem;
 }
@@ -130,10 +130,10 @@ button {
   position: absolute;
   top: 1rem;
   left: 1rem;
-  height: 12rem;
+  height: 8rem;
 }
 .record__image-small {
-  height: 8rem;
+  height: 6rem;
   margin: 0 2rem;
 }
 
