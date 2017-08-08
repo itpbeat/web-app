@@ -2,10 +2,10 @@ import React from 'react';
 import {ReactMic} from 'react-mic';
 var classNames = require('classnames');
 
-const bootsSound = require('../assets/boots.wav');
-const toolsSound = require('../assets/tools.wav');
-const kaleSound = require('../assets/kale.wav');
-const shoesSound = require('../assets/shoes.wav');
+const bootsSound = require('../assets/RefP.wav');
+const toolsSound = require('../assets/RefT.wav');
+const kaleSound = require('../assets/RefK.wav');
+const shoesSound = require('../assets/RefS.wav');
 const countoffSound = require('../assets/metronome.wav');
 const hearImageUrl = require('../assets/speaker.png');
 const rejectImageUrl = require('../assets/reject.png');

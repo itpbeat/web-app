@@ -22,7 +22,7 @@ class Video extends React.Component {
           <h4>Record all the sounds to fint your new friend Wiggy</h4>
         </header>
         <YouTube
-          videoId="b9-3N383eRY"
+          videoId="BP_QYZTMdc0"
           opts={opts}
           onReady={this._onReady}/>
         <button className="startButton" onClick={this.props.increaseProgramState}> START </button>
