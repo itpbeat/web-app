@@ -8,7 +8,7 @@ import '../styles/App.css';
 import { BrowserRouter as Router, Link, Route, Switch, browserHistory} from 'react-router-dom';
 
 const bgUrl = require('../assets/star_bg.png');
-const green = require('../assets/green_bg.png');
+const green = require('../assets/bg.png');
 var background = {
   backgroundSize: "cover",
   backgroundPosition: "center center",
