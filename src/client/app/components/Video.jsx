@@ -19,7 +19,7 @@ class Video extends React.Component {
       <div className="centerContent">
         <header className="component-header">
           <h1>YOUR MISSION</h1>
-          <h4>Record all the sounds to fint your new friend Wiggy</h4>
+          <h4>Record all the sounds to find your new friend Wiggy</h4>
         </header>
         <YouTube
           videoId="BP_QYZTMdc0"
