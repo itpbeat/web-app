@@ -2,6 +2,7 @@ import React from 'react';
 import Video from './Video.jsx';
 import Lesson from './Lesson.jsx';
 import Beatmachine from './Beatmachine.jsx';
+import Simonsays from './Simonsays.jsx';
 import Wiggy from './Wiggy.jsx';
 import '../styles/App.css';
 
@@ -39,50 +40,7 @@ class App extends React.Component {
   render() {
     return (
         <div>
-        {(() => { // eslint-disable-line
-          if (this.state.programState == 0) {
-            return (
-              <div style = {background}>
-                <Lesson
-                  increaseProgramState = {this.increaseProgramState}
-                />
-              </div>
-            )
-          }
-        })()}
-        {(() => { // eslint-disable-line
-          if (this.state.programState == 1) {
-            return (
-              <div style = {background}>
-                <Video
-                  increaseProgramState = {this.increaseProgramState}
-                />
-              </div>
-            )
-          }
-        })()}
-        {(() => { // eslint-disable-line
-          if (this.state.programState == 2) {
-            return (
-              <div style = {greenBackground}>
-                <Beatmachine
-                  increaseProgramState = {this.increaseProgramState}
-                />
-              </div>
-            )
-          }
-        })()}
-        {(() => { // eslint-disable-line
-          if (this.state.programState == 3) {
-            return (
-              <div style = {background}>
-              <Wiggy
-                increaseProgramState = {this.increaseProgramState}
-              />
-              </div>
-            )
-          }
-        })()}
+          <Simonsays/>
         </div>
     );
   }
@@ -92,3 +50,49 @@ const loadBeat = ({ match }) =>(
 )
 
 export default App;
+
+//
+// {(() => { // eslint-disable-line
+//   if (this.state.programState == 0) {
+//     return (
+//       <div style = {background}>
+//         <Lesson
+//           increaseProgramState = {this.increaseProgramState}
+//         />
+//       </div>
+//     )
+//   }
+// })()}
+// {(() => { // eslint-disable-line
+//   if (this.state.programState == 1) {
+//     return (
+//       <div style = {background}>
+//         <Video
+//           increaseProgramState = {this.increaseProgramState}
+//         />
+//       </div>
+//     )
+//   }
+// })()}
+// {(() => { // eslint-disable-line
+//   if (this.state.programState == 2) {
+//     return (
+//       <div style = {greenBackground}>
+//         <Beatmachine
+//           increaseProgramState = {this.increaseProgramState}
+//         />
+//       </div>
+//     )
+//   }
+// })()}
+// {(() => { // eslint-disable-line
+//   if (this.state.programState == 3) {
+//     return (
+//       <div style = {background}>
+//       <Wiggy
+//         increaseProgramState = {this.increaseProgramState}
+//       />
+//       </div>
+//     )
+//   }
+// })()}
