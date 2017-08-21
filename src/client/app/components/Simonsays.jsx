@@ -8,13 +8,12 @@ const tSoundUrl = require('../assets/RefT.wav');
 const kSoundUrl = require('../assets/RefK.wav');
 const sSoundUrl = require('../assets/RefS.wav');
 
-
 class Simonsays extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       programState: 1,
-      message: "",
+      message: "Hit START and follow the beat",
       simonSequence: [],
       userSequence: [],
       gameStarted: true,
@@ -25,7 +24,7 @@ class Simonsays extends React.Component {
         1: tSoundUrl,
         2: kSoundUrl,
         3: sSoundUrl
-      },
+      }
     };
     this.simonTurn = this.simonTurn.bind(this);
     this.simonSays = this.simonSays.bind(this);
@@ -33,59 +32,55 @@ class Simonsays extends React.Component {
     this.getRand = this.getRand.bind(this);
     this.playAudio = this.playAudio.bind(this);
     this.startGame = this.startGame.bind(this);
+    this.resetGame = this.resetGame.bind(this);
     this.userPress = this.userPress.bind(this);
-    this.setMismatch = this.setMismatch.bind(this);
-    this.setMatch = this.setMatch.bind(this);
+    this.buttonEffect = this.buttonEffect.bind(this);
   }
-  setMatch() {
-    console.log('set Match');
-    this.setState({
-      sequenceMatches: true,
-      message: "POTATO",
-    });
-  }
-  setMismatch() {
-    console.log('set Mismatch');
-    this.setState({
-      sequenceMatches: false,
-      message: "TOMATO",
-    });
-  }
+
   startGame() {
-    this.setState({
-      message: ""
-    });
     this.simonTurn();
+  }
+  resetGame() {
+    this.setState({
+      programState: 1,
+      message: "Hit START and follow the beat",
+      simonSequence: [],
+      userSequence: [],
+      gameStarted: true,
+      strictOn: false,
+      isUserPlaying: false
+    });
   }
   userPress(index) {
     let that = this;
-    if(this.state.isUserPlaying == true) {
+    this.buttonEffect(index);
+    this.playAudio(index);
+    if (this.state.isUserPlaying == true) {
       let tempUserSeq = this.state.userSequence;
       tempUserSeq.push(index);
-      this.setState({
-        userSequence: tempUserSeq
-      })
+      this.setState({userSequence: tempUserSeq})
 
-      if(this.state.userSequence.length == this.state.simonSequence.length) {
-        let tempSequenceMatches = this.state.userSequence.every(function(item,index){
-          return(item == that.state.simonSequence[index]);
+      if (this.state.userSequence.length == this.state.simonSequence.length) {
+        let tempSequenceMatches = this.state.userSequence.every(function(item, index) {
+          return (item == that.state.simonSequence[index]);
         });
         console.log(tempSequenceMatches);
-        //decide the next step based on whether the input was right or wrong
-        if(tempSequenceMatches) {
+
+        if (tempSequenceMatches) {
+          let that = this;
           this.setState({
             userSequence: [],
             programState: this.state.programState + 1,
-            message: "Good Job, try the next pattern now!",
-          },() => {
-            this.startGame();
+            message: "Good Job, try the next pattern now!"
+          }, () => {
+            setTimeout(function() {
+              that.startGame();
+            },1000);
+
           });
 
         } else {
-          this.setState({
-            userSequence: [],
-            message: "That didn't match, try again!",
-          });
+          this.setState({userSequence: [], message: "That didn't match, try again!"});
         }
 
       }
@@ -104,36 +99,36 @@ class Simonsays extends React.Component {
     let quad = this.getRand();
     let tempSeq = this.state.simonSequence;
     tempSeq.push(quad);
-    this.setState({
-      simonSequence: tempSeq,
-    });
+    this.setState({simonSequence: tempSeq});
+  }
+  buttonEffect(index) {
+    $($(".button")[index]).toggleClass("button--pressed");
+    setTimeout(function(){
+      $($(".button")[index]).toggleClass("button--pressed");
+    }, 250);
   }
   simonSays(i, isLastBeat) {
     let that = this;
-    this.setState({
-      isUserPlaying: false
-    })
-    setTimeout(function(){
-        var quadIndex = that.state.simonSequence[i];
-        that.playAudio(quadIndex);
-        if(isLastBeat) {
-          that.setState({
-            isUserPlaying: true
-          })
-        }
+    this.setState({isUserPlaying: false})
+    setTimeout(function() {
+      var quadIndex = that.state.simonSequence[i];
+      that.buttonEffect(quadIndex);
+      that.playAudio(quadIndex);
+      if (isLastBeat) {
+        that.setState({isUserPlaying: true})
+      }
     }, i * 800);
   }
   simonTurn() {
     if (this.state.gameStarted == true) {
-      if(this.state.programState > this.state.simonSequence.length) {
+      if (this.state.programState > this.state.simonSequence.length) {
         this.newMove();
       }
       for (var i = 0; i < this.state.programState; i += 1) {
-        if(i == this.state.simonSequence.length-1) {
-          this.simonSays(i,true);
-        }
-        else {
-          this.simonSays(i,false);
+        if (i == this.state.simonSequence.length - 1) {
+          this.simonSays(i, true);
+        } else {
+          this.simonSays(i, false);
         }
 
       }
@@ -144,33 +139,43 @@ class Simonsays extends React.Component {
   render() {
     return (
       <div>
-        <h1>Beatboxing Simon Says</h1>
-        <h2>Hit Start and try to follow the sequence with the mouse. If you can follow the sequence 8 times, you win</h2>
+        <h1 className="simonsays__inst">Beatboxing Simon Says</h1>
+        <div className="simonsays__container">
+          <h2 className="simonsays__sub-inst">
+            {this.state.message}
+          </h2>
+          <div className="simonsays__controls">
+            <div className="controls__container">
+              <button id="start" onClick={this.startGame} className="control__button">
+                Start
+              </button>
+              <button id="reset" onClick={this.resetGame} className="control__button">
+                Reset
+              </button>
+            </div>
 
-        <div className="board">
-          <div className="row">
-            <button className="quadrant green" onClick={() => this.userPress(0) }>
-            <p>P</p>
-            </button>
-
-            <button className="quadrant red" onClick={() => this.userPress(1) }>
-              <p>T</p>
-            </button>
-          </div>
-          <div className="row">
-            <button className="quadrant yellow" onClick={() => this.userPress(2) }><p>K</p></button>
-            <button className="quadrant blue" onClick={() => this.userPress(3) }><p>S</p></button>
-          </div>
-          <div className="controls">
-            <p id="count">Pattern No. {this.state.programState}</p>
-            <button
-              id="start"
-              onClick={this.startGame}
-            >
-              Start
-            </button>
-            <button id="strict">Strict</button>
-            <button id="reset">Reset</button>
+            <div className="buttons__container">
+              <button className="button button__P" onClick={() => this.userPress(0)}>
+                <p>P</p>
+              </button>
+              <button className="button button__T" onClick={() => this.userPress(1)}>
+                <p>T</p>
+              </button>
+              <button className="button button__K" onClick={() => this.userPress(2)}>
+                <p>K</p>
+              </button>
+              <button className="button button__S" onClick={() => this.userPress(3)}>
+                <p>S</p>
+              </button>
+            </div>
+            <div className="count__container">
+              <p className="patterns-count__number">
+                {this.state.programState}
+              </p>
+              <p className="patterns-count__total">
+                OF 8
+              </p>
+            </div>
           </div>
         </div>
 
