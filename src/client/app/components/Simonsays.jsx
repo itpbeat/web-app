@@ -66,7 +66,7 @@ class Simonsays extends React.Component {
         });
         console.log(tempSequenceMatches);
 
-        if (tempSequenceMatches) {
+        if (tempSequenceMatches && this.state.userSequence.length<8) {
           let that = this;
           this.setState({
             userSequence: [],
@@ -78,7 +78,11 @@ class Simonsays extends React.Component {
             },1000);
 
           });
-
+        } else if(tempSequenceMatches && this.state.userSequence.length==8) {
+          this.setState({
+            userSequence: [],
+            message: "Good Job, You WIN!"
+          })
         } else {
           this.setState({userSequence: [], message: "That didn't match, try again!"});
         }
@@ -178,11 +182,6 @@ class Simonsays extends React.Component {
             </div>
           </div>
         </div>
-
-        <div id="modal" className="hidden">
-          <h1 id="modalMessage">Win!</h1>
-        </div>
-        <p>{this.state.message}</p>
       </div>
     );
   }
