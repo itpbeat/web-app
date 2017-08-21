@@ -40,7 +40,51 @@ class App extends React.Component {
   render() {
     return (
         <div>
-          <Simonsays/>
+          
+          {(() => { // eslint-disable-line
+            if (this.state.programState == 0) {
+              return (
+                <div style = {background}>
+                  <Lesson
+                    increaseProgramState = {this.increaseProgramState}
+                  />
+                </div>
+              )
+            }
+          })()}
+          {(() => { // eslint-disable-line
+            if (this.state.programState == 1) {
+              return (
+                <div style = {background}>
+                  <Video
+                    increaseProgramState = {this.increaseProgramState}
+                  />
+                </div>
+              )
+            }
+          })()}
+          {(() => { // eslint-disable-line
+            if (this.state.programState == 2) {
+              return (
+                <div style = {greenBackground}>
+                  <Beatmachine
+                    increaseProgramState = {this.increaseProgramState}
+                  />
+                </div>
+              )
+            }
+          })()}
+          {(() => { // eslint-disable-line
+            if (this.state.programState == 3) {
+              return (
+                <div style = {background}>
+                <Wiggy
+                  increaseProgramState = {this.increaseProgramState}
+                />
+                </div>
+              )
+            }
+          })()}
         </div>
     );
   }
@@ -50,49 +94,3 @@ const loadBeat = ({ match }) =>(
 )
 
 export default App;
-
-//
-// {(() => { // eslint-disable-line
-//   if (this.state.programState == 0) {
-//     return (
-//       <div style = {background}>
-//         <Lesson
-//           increaseProgramState = {this.increaseProgramState}
-//         />
-//       </div>
-//     )
-//   }
-// })()}
-// {(() => { // eslint-disable-line
-//   if (this.state.programState == 1) {
-//     return (
-//       <div style = {background}>
-//         <Video
-//           increaseProgramState = {this.increaseProgramState}
-//         />
-//       </div>
-//     )
-//   }
-// })()}
-// {(() => { // eslint-disable-line
-//   if (this.state.programState == 2) {
-//     return (
-//       <div style = {greenBackground}>
-//         <Beatmachine
-//           increaseProgramState = {this.increaseProgramState}
-//         />
-//       </div>
-//     )
-//   }
-// })()}
-// {(() => { // eslint-disable-line
-//   if (this.state.programState == 3) {
-//     return (
-//       <div style = {background}>
-//       <Wiggy
-//         increaseProgramState = {this.increaseProgramState}
-//       />
-//       </div>
-//     )
-//   }
-// })()}

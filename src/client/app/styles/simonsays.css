@@ -113,72 +113,15 @@ body {
   font-weight: 800;
 }
 
-
 .button__P {
   background-color: #793b9c;
 }
-.green.played {
-  background-color: #191;
-}
-
 .button__T {
   background-color: #2167ac;
 }
-.red.played {
-  background-color: #911;
-}
-
 .button__K {
   background-color: #37af72;
 }
-.yellow.played {
-  background-color: #991;
-}
-
 .button__S {
   background-color: #c2992d;
-}
-.blue.played {
-  background-color: #119;
-}
-
-.controls {
-  text-align: center;
-  border: 10px solid #111;
-  box-sizing: border-box;
-  background-color: #fff;
-  border-radius: 100%;
-  padding: 15px;
-  width: 210px;
-  height: 200px;
-  top: 120px;
-  left: 70px;
-}
-.controls p {
-  font-size: 24px;
-  font-weight: 80;
-}
-
-#modal {
-  position: absolute;
-  top: 167px;
-  left: 678px;
-  height: 100px;
-  width: 200px;
-  text-align: center;
-  background-color: #ffa;
-  border-radius: 5%;
-  border: 2px solid #446;
-}
-#modal.hidden {
-  display: none;
-}
-
-button {
-  border-radius: 5%;
-  font-weight: 800;
-  background-color: #ffa;
-}
-button.on {
-  background-color: #f33;
 }
