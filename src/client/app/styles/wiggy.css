@@ -24,17 +24,3 @@
   font-family: 'Black';
   font-size: 2rem;
 }
-
-.wiggy__image{
-  width: 40%;
-  display: block;
-  margin: 0 auto;
-}
-.wiggy__container{
-  text-align: center;
-}
-.wiggy-container{
-  position: absolute;
-  top: 20%;
-  right: 20%;
-}
