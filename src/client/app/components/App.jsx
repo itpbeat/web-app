@@ -95,9 +95,11 @@ class App extends React.Component {
         {(() => { // eslint-disable-line
           if (this.state.programState == 4) {
             return (
+              <div style = {background}>
               <Wiggy
                 increaseProgramState = {this.increaseProgramState}
               />
+              </div>
             )
           }
         })()}

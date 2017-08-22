@@ -2,8 +2,8 @@
 .wiggy-button {
   color: #fff;
   margin: 10px 10px;
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   font-family: 'Black';
 }
@@ -23,4 +23,19 @@
 .wiggy-button__title {
   font-family: 'Black';
   font-size: 2rem;
+}
+
+.wiggy__image{
+  width: 40%;
+  display: block;
+  margin: 0 auto;
+}
+.wiggy__container{
+  text-align: center;
+  padding: 5% 0;
+}
+.wiggy-container{
+  position: absolute;
+  top: 20%;
+  right: 20%;
 }
