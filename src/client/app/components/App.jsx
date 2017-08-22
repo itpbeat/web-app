@@ -5,6 +5,7 @@ import Home from './Home.jsx';
 import Beatmachine from './Beatmachine.jsx';
 import Wiggy from './Wiggy.jsx';
 import SecondLesson from './lesson2/SecondLesson.jsx';
+import SecondVideo from './lesson2/SecondVideo.jsx';
 import '../styles/App.css';
 
 import { BrowserRouter as Router, Link, Route, Switch, browserHistory} from 'react-router-dom';
@@ -12,14 +13,16 @@ import { BrowserRouter as Router, Link, Route, Switch, browserHistory} from 'rea
 const bgUrl = require('../assets/star_bg.png');
 const green = require('../assets/green_bg.png');
 var background = {
-  width: "100%",
+  width: "100%s",
   height: "100%",
   backgroundImage: "url(" +  bgUrl + ")",
+  backgroundSize: "100% 100%",
 };
 var greenBackground = {
   width: "100%",
   height: "100%",
   backgroundImage: "url(" +  green + ")",
+  backgroundSize: "100% 100%",
 }
 
 
@@ -92,20 +95,31 @@ class App extends React.Component {
         {(() => { // eslint-disable-line
           if (this.state.programState == 4) {
             return (
-              <div style = {background}>
               <Wiggy
                 increaseProgramState = {this.increaseProgramState}
               />
-              </div>
             )
           }
         })()}
         {(() => { // eslint-disable-line
           if (this.state.programState == 5) {
             return (
-              <SecondLesson
-                increaseProgramState = {this.increaseProgramState}
-              />
+              <div style = {background}>
+                <SecondLesson
+                  increaseProgramState = {this.increaseProgramState}
+                />
+              </div>
+            )
+          }
+        })()}
+        {(() => { // eslint-disable-line
+          if (this.state.programState == 6) {
+            return (
+              <div style = {background}>
+                <SecondVideo
+                  increaseProgramState = {this.increaseProgramState}
+                />
+              </div>
             )
           }
         })()}

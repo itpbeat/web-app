@@ -1,9 +1,7 @@
 import React from 'react';
-import '../../styles/lesson.css';
-const planet = require('../../assets/main_grouped.png');
-const logo = require('../../assets/beat_logo.png');
+const planet = require('../../assets/planet2.png');
 
-class Lesson extends React.Component{
+class SecondLesson extends React.Component{
   constructor(props){
     super(props);
   }
@@ -12,11 +10,10 @@ class Lesson extends React.Component{
       <div>
         <img src={planet} className="planetImg"/>
         <button className="visitButton" onClick={this.props.increaseProgramState}> VISIT </button>
-        <img src={logo} className='logoImg' />
       </div>
 
     )
   };
 }
 
-export default Lesson;
+export default SecondLesson;

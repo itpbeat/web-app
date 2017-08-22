@@ -5,6 +5,7 @@ const p1 = require('../assets/planet1.png');
 const p2 = require('../assets/planet2.png');
 const p3 = require('../assets/planet3.png');
 const title = require('../assets/title.png');
+const logo = require('../assets/beat_logo.png');
 
 var background = {
   width: "100%",
@@ -23,6 +24,7 @@ class Lesson extends React.Component{
         <img src={p1} className="planetHome planet1" onClick={this.props.increaseProgramState}/>
         <img src={p2} className="planetHome planet2" onClick={this.props.planetState}/>
         <img src={p3} className="planetHome planet3"/>
+        <img src={logo} className='logoImg' />
       </div>
 
     )
