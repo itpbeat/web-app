@@ -32,10 +32,13 @@
 }
 .wiggy__container{
   text-align: center;
-  padding: 5% 0;
+  padding: 5% 0 0 0;
 }
 .wiggy-container{
   position: absolute;
   top: 20%;
   right: 20%;
+}
+.zububu__image{
+  width: 20%;
 }

@@ -1,0 +1,25 @@
+.planetHome{
+  width: 14%;
+  cursor: pointer;
+}
+.planet1{
+  position: absolute;
+  top: 10%;
+  left: 45%;
+}
+.planet2{
+  position: absolute;
+  bottom: 15%;
+  left: 25%;
+}
+.planet3{
+  position: absolute;
+  bottom: 10%;
+  right: 20%;
+}
+.titleHome{
+  width: 50%;
+  display: block;
+  margin: auto;
+  padding-top: 15%;
+}

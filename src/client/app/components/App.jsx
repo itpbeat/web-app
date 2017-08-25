@@ -1,8 +1,12 @@
 import React from 'react';
 import Video from './Video.jsx';
 import Lesson from './Lesson.jsx';
+import Home from './Home.jsx';
 import Beatmachine from './Beatmachine.jsx';
 import Wiggy from './Wiggy.jsx';
+import SecondLesson from './lesson2/SecondLesson.jsx';
+import SecondVideo from './lesson2/SecondVideo.jsx';
+import Bubu from './lesson2/Zububu.jsx';
 import '../styles/App.css';
 
 import { BrowserRouter as Router, Link, Route, Switch, browserHistory} from 'react-router-dom';
@@ -10,17 +14,18 @@ import { BrowserRouter as Router, Link, Route, Switch, browserHistory} from 'rea
 const bgUrl = require('../assets/star_bg.png');
 const green = require('../assets/bg.png');
 var background = {
-  backgroundSize: "cover",
-  backgroundPosition: "center center",
-  minHeight: "100%",
-  backgroundImage: "url(" +  bgUrl + ")"
+  width: "100%",
+  height: "100%",
+  backgroundImage: "url(" +  bgUrl + ")",
+  backgroundSize: "100% 100%",
 };
 var greenBackground = {
-  backgroundSize: "cover",
-  backgroundPosition: "center center",
-  minHeight: "100%",
-  backgroundImage: "url(" +  green + ")"
-};
+  width: "100%",
+  height: "100%",
+  backgroundImage: "url(" +  green + ")",
+  backgroundSize: "100% 100%",
+}
+
 
 class App extends React.Component {
   constructor() {
@@ -29,11 +34,17 @@ class App extends React.Component {
       programState: 0
     }
     this.increaseProgramState = this.increaseProgramState.bind(this);
+    this.planetState = this.planetState.bind(this);
+
   }
   increaseProgramState() {
-    console.log("increase");
     this.setState({
       programState: this.state.programState + 1
+    })
+  }
+  planetState() {
+    this.setState({
+      programState: this.state.programState + 5
     })
   }
   render() {
@@ -41,6 +52,16 @@ class App extends React.Component {
         <div>
         {(() => { // eslint-disable-line
           if (this.state.programState == 0) {
+            return (
+              <Home
+                increaseProgramState = {this.increaseProgramState}
+                planetState = {this.planetState}
+              />
+            )
+          }
+        })()}
+        {(() => { // eslint-disable-line
+          if (this.state.programState == 1) {
             return (
               <div style = {background}>
                 <Lesson
@@ -51,7 +72,7 @@ class App extends React.Component {
           }
         })()}
         {(() => { // eslint-disable-line
-          if (this.state.programState == 1) {
+          if (this.state.programState == 2) {
             return (
               <div style = {background}>
                 <Video
@@ -62,7 +83,7 @@ class App extends React.Component {
           }
         })()}
         {(() => { // eslint-disable-line
-          if (this.state.programState == 2) {
+          if (this.state.programState == 3) {
             return (
               <div style = {greenBackground}>
                 <Beatmachine
@@ -73,12 +94,43 @@ class App extends React.Component {
           }
         })()}
         {(() => { // eslint-disable-line
-          if (this.state.programState == 3) {
+          if (this.state.programState == 4) {
             return (
               <div style = {background}>
               <Wiggy
                 increaseProgramState = {this.increaseProgramState}
               />
+              </div>
+            )
+          }
+        })()}
+        {(() => { // eslint-disable-line
+          if (this.state.programState == 5) {
+            return (
+              <div style = {background}>
+                <SecondLesson
+                  increaseProgramState = {this.increaseProgramState}
+                />
+              </div>
+            )
+          }
+        })()}
+        {(() => { // eslint-disable-line
+          if (this.state.programState == 6) {
+            return (
+              <div style = {background}>
+                <SecondVideo
+                  increaseProgramState = {this.increaseProgramState}
+                />
+              </div>
+            )
+          }
+        })()}
+        {(() => { // eslint-disable-line
+          if (this.state.programState == 7) {
+            return (
+              <div style = {background}>
+                <Bubu/>
               </div>
             )
           }
