@@ -1,5 +1,5 @@
 import React from 'react';
-const planet = require('../../assets/planet2.png');
+const planet = require('../../assets/main.png');
 
 class SecondLesson extends React.Component{
   constructor(props){

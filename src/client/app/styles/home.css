@@ -1,5 +1,5 @@
 .planetHome{
-  width: 120px;
+  width: 14%;
   cursor: pointer;
 }
 .planet1{
@@ -18,8 +18,8 @@
   right: 20%;
 }
 .titleHome{
-  width: 60%;
+  width: 50%;
   display: block;
   margin: auto;
-  padding-top: 200px;
+  padding-top: 15%;
 }

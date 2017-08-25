@@ -6,6 +6,7 @@ import Beatmachine from './Beatmachine.jsx';
 import Wiggy from './Wiggy.jsx';
 import SecondLesson from './lesson2/SecondLesson.jsx';
 import SecondVideo from './lesson2/SecondVideo.jsx';
+import Bubu from './lesson2/Zububu.jsx';
 import '../styles/App.css';
 
 import { BrowserRouter as Router, Link, Route, Switch, browserHistory} from 'react-router-dom';
@@ -121,6 +122,15 @@ class App extends React.Component {
                 <SecondVideo
                   increaseProgramState = {this.increaseProgramState}
                 />
+              </div>
+            )
+          }
+        })()}
+        {(() => { // eslint-disable-line
+          if (this.state.programState == 7) {
+            return (
+              <div style = {background}>
+                <Bubu/>
               </div>
             )
           }
