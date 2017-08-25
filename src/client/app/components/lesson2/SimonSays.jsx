@@ -25,7 +25,7 @@ class Simonsays extends React.Component {
         2: kSimonSoundUrl,
         3: sSimonSoundUrl
       },
-      finalLength: 2
+      finalLength: 8
     };
     this.simonTurn = this.simonTurn.bind(this);
     this.simonSays = this.simonSays.bind(this);
@@ -36,14 +36,15 @@ class Simonsays extends React.Component {
     this.resetGame = this.resetGame.bind(this);
     this.userPress = this.userPress.bind(this);
     this.buttonEffect = this.buttonEffect.bind(this);
-    this.handleGlobalKeydown = this.handleGlobalKeydown.bind(this);
+    this.handleSimonGlobalKeydown = this.handleSimonGlobalKeydown.bind(this);
   }
 
   componentDidMount() {
-    document.addEventListener('keydown', this.handleGlobalKeydown, false);
+    document.onkeydown = null;
+    document.onkeydown = this.handleSimonGlobalKeydown;
   }
 
-  handleGlobalKeydown(e) {
+  handleSimonGlobalKeydown(e) {
 
     if (e.keyCode === 80) { // press P
       console.log("P key Pressed");

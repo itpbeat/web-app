@@ -109,6 +109,7 @@ class App extends React.Component {
               <div style = {background}>
               <Wiggy
                 increaseProgramState = {this.increaseProgramState}
+                programState = {this.state.programState}
               />
               </div>
             )
@@ -142,6 +143,7 @@ class App extends React.Component {
               <div style = {background}>
                 <Simonsays
                   increaseProgramState = {this.increaseProgramState}
+                  programState = {this.state.programState}
                 />
               </div>
             )

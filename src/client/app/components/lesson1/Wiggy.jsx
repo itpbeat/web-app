@@ -35,7 +35,8 @@ class Wiggy extends React.Component {
 
   componentDidMount() {
     this.initialize();
-    document.addEventListener('keydown', this.handleGlobalKeydown, false);
+    document.onkeydown = null;
+    document.onkeydown = this.handleGlobalKeydown;
   }
   initialize() {
     let tempTrack = null;

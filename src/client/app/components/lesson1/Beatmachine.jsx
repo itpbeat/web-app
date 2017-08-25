@@ -72,7 +72,8 @@ class Beatmachine extends React.Component {
     let tempTrack = null;
     tempTrack = new Audio(countoffSound);
     this.setState({countoffTrack: tempTrack});
-    document.addEventListener('keydown', this.handleGlobalKeydown, false);
+    document.onkeydown = null;
+    document.onkeydown = this.handleGlobalKeydown;
     document.addEventListener('mouseup', this.handleGlobalMouseUp, false);
   }
   handleGlobalMouseUp() {
