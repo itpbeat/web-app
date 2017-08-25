@@ -1,6 +1,6 @@
 import React from 'react';
-import '../styles/lesson.css';
-const planet = require('../assets/main_grouped.png');
+import '../../styles/lesson.css';
+const planet = require('../../assets/main_grouped.png');
 
 class Lesson extends React.Component{
   constructor(props){

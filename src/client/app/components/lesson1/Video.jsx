@@ -1,6 +1,6 @@
 import React from 'react';
 import YouTube from 'react-youtube';
-import '../styles/header.css';
+import '../../styles/header.css';
 
 class Video extends React.Component {
   constructor(props){

@@ -1,9 +1,10 @@
 import React from 'react';
-import Video from './Video.jsx';
-import Lesson from './Lesson.jsx';
+import Video from './lesson1/Video.jsx';
+import Lesson from './lesson1/Lesson.jsx';
 import Home from './Home.jsx';
-import Beatmachine from './Beatmachine.jsx';
-import Wiggy from './Wiggy.jsx';
+import Beatmachine from './lesson1/Beatmachine.jsx';
+import Simonsays from './lesson2/Simonsays.jsx';
+import Wiggy from './lesson1/Wiggy.jsx';
 import SecondLesson from './lesson2/SecondLesson.jsx';
 import SecondVideo from './lesson2/SecondVideo.jsx';
 import Bubu from './lesson2/Zububu.jsx';
@@ -35,11 +36,17 @@ class App extends React.Component {
     }
     this.increaseProgramState = this.increaseProgramState.bind(this);
     this.planetState = this.planetState.bind(this);
+    this.resetToHome = this.resetToHome.bind(this);
 
   }
   increaseProgramState() {
     this.setState({
       programState: this.state.programState + 1
+    })
+  }
+  resetToHome() {
+    this.setState({
+      programState: 0
     })
   }
   planetState() {
@@ -50,6 +57,9 @@ class App extends React.Component {
   render() {
     return (
         <div>
+          <button className = "home__button" onClick={this.resetToHome}>
+            Home
+          </button>
         {(() => { // eslint-disable-line
           if (this.state.programState == 0) {
             return (
@@ -128,6 +138,17 @@ class App extends React.Component {
         })()}
         {(() => { // eslint-disable-line
           if (this.state.programState == 7) {
+            return (
+              <div style = {background}>
+                <Simonsays
+                  increaseProgramState = {this.increaseProgramState}
+                />
+              </div>
+            )
+          }
+        })()}
+        {(() => { // eslint-disable-line
+          if (this.state.programState == 8) {
             return (
               <div style = {background}>
                 <Bubu/>

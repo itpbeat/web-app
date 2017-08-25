@@ -1,13 +1,13 @@
 import React from 'react';
 import {ReactMic} from 'react-mic';
 var classNames = require('classnames');
-import '../styles/wiggy.css';
+import '../../styles/wiggy.css';
 
-const bootsSound = require('../assets/Pfx.wav');
-const toolsSound = require('../assets/Tfx.wav');
-const kaleSound = require('../assets/Kfx.wav');
-const shoesSound = require('../assets/Sfx.wav');
-const wiggyImageUrl = require('../assets/wiggy.png');
+const bootsSound = require('../../assets/Pfx.wav');
+const toolsSound = require('../../assets/Tfx.wav');
+const kaleSound = require('../../assets/Kfx.wav');
+const shoesSound = require('../../assets/Sfx.wav');
+const wiggyImageUrl = require('../../assets/wiggy.png');
 
 class Wiggy extends React.Component {
   constructor(props) {
