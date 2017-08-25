@@ -3,10 +3,10 @@ import {ReactMic} from 'react-mic';
 var classNames = require('classnames');
 import '../../styles/simonsays.css';
 
-const pSoundUrl = require('../../assets/RefP.wav');
-const tSoundUrl = require('../../assets/RefT.wav');
-const kSoundUrl = require('../../assets/RefK.wav');
-const sSoundUrl = require('../../assets/RefS.wav');
+const pSimonSoundUrl = require('../../assets/RefP.wav');
+const tSimonSoundUrl = require('../../assets/RefT.wav');
+const kSimonSoundUrl = require('../../assets/RefK.wav');
+const sSimonSoundUrl = require('../../assets/RefS.wav');
 
 class Simonsays extends React.Component {
   constructor(props) {
@@ -20,10 +20,10 @@ class Simonsays extends React.Component {
       strictOn: false,
       isUserPlaying: false,
       audioSequences: {
-        0: pSoundUrl,
-        1: tSoundUrl,
-        2: kSoundUrl,
-        3: sSoundUrl
+        0: pSimonSoundUrl,
+        1: tSimonSoundUrl,
+        2: kSimonSoundUrl,
+        3: sSimonSoundUrl
       },
       finalLength: 2
     };
