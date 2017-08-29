@@ -1,0 +1,50 @@
+
+.zububu-button {
+  color: #fff;
+  margin: 10px auto;
+  padding: 10px;
+  width: fit-content;
+  border-radius: 5%;
+  font-family: 'Black';
+}
+.zububu-button-1 {
+  background-color: #793b9c;
+}
+.zububu-button-2 {
+  background-color: #1f68ac;
+}
+.zububu-button-3 {
+  background-color: #37af72;
+}
+.zububu-button-4 {
+  background-color: #c2992d;
+}
+
+.zububu-button__title {
+  font-family: 'Black';
+  font-size: 2rem;
+}
+
+.zububu__image{
+  width: 40%;
+  display: block;
+  margin: 0 auto;
+}
+.zububu__container{
+  text-align: center;
+  padding: 5% 0 0 0;
+}
+.zububu-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.zububu__image{
+  width: 20%;
+}
+
+.zububu__heading {
+  color: white;
+  font-family: 'Black';
+  padding: 40px 0 20px 0;
+}
