@@ -16,17 +16,18 @@ class Video extends React.Component {
     };
 
     return (
-      <div className="centerContent">
-        <header className="component-header">
-          <h1>YOUR MISSION</h1>
-          <h4>Record all the sounds to find your new friend Wiggy</h4>
-        </header>
-        <YouTube
-          videoId="BP_QYZTMdc0"
-          opts={opts}
-          onReady={this._onReady}/>
-        <button className="startButton" onClick={this.props.increaseProgramState}> START </button>
-
+      <div className="starBackground">
+        <div className="centerContent">
+          <header className="component-header">
+            <h1>YOUR MISSION</h1>
+            <h4>Record all the sounds to find your new friend Wiggy</h4>
+          </header>
+          <YouTube
+            videoId="BP_QYZTMdc0"
+            opts={opts}
+            onReady={this._onReady}/>
+          <a className="startButton" href="/lesson1_beatmachine"> START </a>
+        </div>
       </div>
     );
   }

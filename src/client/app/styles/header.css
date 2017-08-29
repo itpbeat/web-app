@@ -1,7 +1,6 @@
-
 @font-face {
   font-family: 'Black';
-  src: url('../fonts/KabelLTStd-Black.ttf')  format('truetype'), /* Safari, Android, iOS */
+  src: url('./../fonts/KabelLTStd-Black.ttf')  format('truetype'); /* Safari, Android, iOS */
 }
 .component-header{
   color: white;
@@ -29,4 +28,6 @@
 .centerContent{
   text-align: center;
   padding: 5% 0;
+  display: flex;
+  flex-direction: column;
 }

@@ -7,9 +7,9 @@ class SecondLesson extends React.Component{
   }
   render(){
     return (
-      <div>
+      <div className="starBackground">
         <img src={planet} className="planetImg"/>
-        <button className="visitButton" onClick={this.props.increaseProgramState}> VISIT </button>
+        <a className="visitButton" href="/lesson2_video"> VISIT </a>
       </div>
 
     )

@@ -25,6 +25,8 @@
 }
 
 .home__button {
+  font-family: "Black";
+  text-decoration: none;
   position: absolute;
   top: 2%;
   right: 2%;

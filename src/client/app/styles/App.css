@@ -7,3 +7,17 @@ html, body {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.starBackground {
+  width: 100%;
+  min-height: 100%;
+  background-image: url('./../assets/star_bg.png');
+  background-size: 100% 100%;
+}
+
+.greenBackground {
+  width: 100%;
+  min-height: 100%;
+  background-image: url('./../assets/bg.png');
+  background-size: 100% 100%;
+}

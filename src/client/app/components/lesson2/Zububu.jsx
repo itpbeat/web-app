@@ -11,11 +11,13 @@ class Bubu extends React.Component {
   }
   render() {
     return (
-      <div className="wiggy__container">
-        <header className="component-header">
-          <h1>YOU FOUND ZUBUBU!</h1>
-        </header>
-        <img className="zububu__image" src={wiggyImageUrl}/>
+      <div className="starBackground">
+        <div className="wiggy__container">
+          <header className="component-header">
+            <h1>YOU FOUND ZUBUBU!</h1>
+          </header>
+          <img className="zububu__image" src={wiggyImageUrl}/>
+        </div>
       </div>
     );
   }
