@@ -16,13 +16,13 @@ const bgUrl = require('../assets/star_bg.png');
 const green = require('../assets/bg.png');
 var background = {
   width: "100%",
-  height: "100%",
+  minHeight: "100%",
   backgroundImage: "url(" +  bgUrl + ")",
   backgroundSize: "100% 100%",
 };
 var greenBackground = {
   width: "100%",
-  height: "100%",
+  minHeight: "100%",
   backgroundImage: "url(" +  green + ")",
   backgroundSize: "100% 100%",
 }
