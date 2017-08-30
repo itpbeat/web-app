@@ -57,23 +57,10 @@ class App extends React.Component {
             path="/lesson1_beatmachine"
             render={props => <Beatmachine updateWiggy = {this.updateWiggy} />}
           />
-          {(() => { // eslint-disable-line
-            if (this.state.wiggyCompleted) {
-              return (
-                <Route exact
-                  path="/lesson1_wiggy"
-                  component={Wiggy}
-                />
-              );
-            } else {
-              return (
-                <Route exact
-                  path="/lesson1_wiggy"
-                  render={props => <Beatmachine updateWiggy = {this.updateWiggy} />}
-                />
-              );
-            }
-          })()}
+          <Route exact
+            path="/lesson1_wiggy"
+            component={Wiggy}
+          />
           <Route exact
             path="/lesson2"
             component={Lesson2}
@@ -82,28 +69,14 @@ class App extends React.Component {
             path="/lesson2_video"
             component={Video2}
           />
-
           <Route exact
             path="/lesson2_simonsays"
             render={props => <Simonsays updateZububu = {this.updateZububu} />}
           />
-          {(() => { // eslint-disable-line
-            if (this.state.zububuCompleted) {
-              return (
-                <Route exact
-                  path="/lesson2_zububu"
-                  component={Zububu}
-                />
-              )
-            } else {
-              return(
-                <Route exact
-                  path="/lesson2_zububu"
-                  render={props => <Simonsays updateZububu = {this.updateZububu} />}
-                />
-              )
-            }
-          })()}
+          <Route exact
+            path="/lesson2_zububu"
+            component={Zububu}
+          />
         </div>
       </Router>
     );
