@@ -15,6 +15,24 @@ import {BrowserRouter as Router, Link, Route, Switch, browserHistory} from 'reac
 class App extends React.Component {
   constructor() {
     super();
+    this.state = {
+      wiggyCompleted: false,
+      zububuCompleted: false
+    };
+    this.updateWiggy = this.updateWiggy.bind(this);
+    this.updateZububu = this.updateZububu.bind(this);
+  }
+
+  updateZububu() {
+    this.setState({
+      zububuCompleted: true
+    });
+  }
+
+  updateWiggy() {
+    this.setState({
+      wiggyCompleted: true
+    });
   }
   render() {
     return (
@@ -37,12 +55,25 @@ class App extends React.Component {
           />
           <Route exact
             path="/lesson1_beatmachine"
-            component={Beatmachine}
+            render={props => <Beatmachine updateWiggy = {this.updateWiggy} />}
           />
-          <Route exact
-            path="/lesson1_wiggy"
-            component={Wiggy}
-          />
+          {(() => { // eslint-disable-line
+            if (this.state.wiggyCompleted) {
+              return (
+                <Route exact
+                  path="/lesson1_wiggy"
+                  component={Wiggy}
+                />
+              );
+            } else {
+              return (
+                <Route exact
+                  path="/lesson1_wiggy"
+                  render={props => <Beatmachine updateWiggy = {this.updateWiggy} />}
+                />
+              );
+            }
+          })()}
           <Route exact
             path="/lesson2"
             component={Lesson2}
@@ -51,14 +82,28 @@ class App extends React.Component {
             path="/lesson2_video"
             component={Video2}
           />
+
           <Route exact
             path="/lesson2_simonsays"
-            component={Simonsays}
+            render={props => <Simonsays updateZububu = {this.updateZububu} />}
           />
-          <Route exact
-            path="/lesson2_zububu"
-            component={Zububu}
-          />
+          {(() => { // eslint-disable-line
+            if (this.state.zububuCompleted) {
+              return (
+                <Route exact
+                  path="/lesson2_zububu"
+                  component={Zububu}
+                />
+              )
+            } else {
+              return(
+                <Route exact
+                  path="/lesson2_zububu"
+                  render={props => <Simonsays updateZububu = {this.updateZububu} />}
+                />
+              )
+            }
+          })()}
         </div>
       </Router>
     );

@@ -120,7 +120,8 @@ class Beatmachine extends React.Component {
 
   componentDidUpdate() {
       if(this.state.noClicks == 30 ) {
-        window.location = "/lesson1_wiggy";
+        this.props.updateWiggy();
+        this.props.history.push('/lesson1_wiggy');
       }
   }
 

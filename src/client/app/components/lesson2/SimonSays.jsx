@@ -116,7 +116,8 @@ class Simonsays extends React.Component {
             userSequence: [],
             message: "Good Job, You WIN!"
           });
-          window.location="/lesson2_zububu"
+          this.props.updateZububu();
+          this.props.history.push('/lesson2_zububu');
 
         } else {
           this.setState({userSequence: [], message: "That didn't match, try again!"});
