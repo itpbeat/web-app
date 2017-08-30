@@ -1,22 +1,18 @@
 # Planet Beat
-## How to setup on your computer
-click the Clone or Download and choose Download ZIP
+## Development Guidline
+1. clone the repo and cd into it
 
-open terminal (command line for Windows machines)
+2. `$ npm install`
 
-navigate to the directory and run `npm install`
+3. to start the app(without login component), run `$ npm start`. The page will be running on `localhost: 8080`
 
-to start the app(without login component), run `npm start`
+4. if you want to modify the code, open another terminal window and navigate to the same directory, run `$ npm run dev`
 
-if you want to modify the code, open another terminal window and navigate to the same directory, run `npm run dev`
+5. refresh the page, the new code will be loaded.
 
-to include the login component, you need to have MongoDB
+6. to include the login component, you need to install MongoDB. Please follow the tutorial [here](https://docs.mongodb.com/manual/installation/)
 
-## Setup MongoDB
-Please follow the tutorial [here](https://docs.mongodb.com/manual/installation/) to install MongoDB
-## Note
-You will now see the website on `localhost:8080`
-
+## Contribution Guideline
 To change video content, navigate to Video.jsx file, and change the videoId to your youtube video id
 
 
