@@ -8,6 +8,13 @@ html, body {
   to { transform: rotate(360deg); }
 }
 
+.stuffBackground {
+  width: 100%;
+  min-height: 100%;
+  background-image: url('./../assets/bg_withstuff.png');
+  background-size: 100% 100%;
+}
+
 .starBackground {
   width: 100%;
   min-height: 100%;
@@ -19,5 +26,11 @@ html, body {
   width: 100%;
   min-height: 100%;
   background-image: url('./../assets/bg.png');
+  background-size: 100% 100%;
+}
+.brownBackground {
+  width: 100%;
+  min-height: 100%;
+  background-image: url('./../assets/brown_bg.png');
   background-size: 100% 100%;
 }

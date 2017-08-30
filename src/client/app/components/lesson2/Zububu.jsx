@@ -68,10 +68,10 @@ class Bubu extends React.Component {
     });
     return (
       <div className="starBackground">
-        <div className="zububu__container">
-          <header className="zububu__heading">
-            <h1>YOU FOUND ZUBUBU!</h1>
-          </header>
+        <div className="monster__container">
+        <header className="component-header">
+          <h1>YOU FOUND ZUBUBU!</h1>
+        </header>
           <img className="zububu__image" src={zububuImageUrl}/>
             <section className="zububu-container">
               <button className={trackButtonBClass} onClick={() => this.playTrack(0)}>
@@ -87,6 +87,12 @@ class Bubu extends React.Component {
                 <h2 className="zububu-button__title">TrapRobot</h2>
               </button>
             </section>
+            <div className = "bottom-button">
+            <a className="single-button" href="/lesson2">Restart
+            </a>
+            <a className="single-button" href="#">Next Lesson
+            </a>
+            </div>
         </div>
       </div>
     );

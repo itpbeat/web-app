@@ -12,21 +12,6 @@ import '../styles/App.css';
 
 import { BrowserRouter as Router, Link, Route, Switch, browserHistory} from 'react-router-dom';
 
-const bgUrl = require('../assets/star_bg.png');
-const green = require('../assets/bg.png');
-var background = {
-  width: "100%",
-  minHeight: "100%",
-  backgroundImage: "url(" +  bgUrl + ")",
-  backgroundSize: "100% 100%",
-};
-var greenBackground = {
-  width: "100%",
-  minHeight: "100%",
-  backgroundImage: "url(" +  green + ")",
-  backgroundSize: "100% 100%",
-}
-
 
 class App extends React.Component {
   constructor() {

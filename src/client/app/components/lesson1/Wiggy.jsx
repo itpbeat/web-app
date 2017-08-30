@@ -97,7 +97,7 @@ class Wiggy extends React.Component {
 
     return (
       <div className="starBackground">
-        <div className="wiggy__container">
+        <div className="monster__container">
           <header className="component-header">
             <h1>YOU FOUND WIGGY!</h1>
           </header>
@@ -117,6 +117,12 @@ class Wiggy extends React.Component {
               <h2 className="wiggy-button__title">S</h2>
             </button>
           </section>
+          <div className = "bottom-button">
+          <a className="single-button" href="/lesson1">Restart
+          </a>
+          <a className="single-button" href="/lesson2">Next Lesson
+          </a>
+          </div>
         </div>
       </div>
     );

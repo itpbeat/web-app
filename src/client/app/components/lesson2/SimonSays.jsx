@@ -176,7 +176,7 @@ class Simonsays extends React.Component {
 
   render() {
     return (
-      <div className="greenBackground">
+      <div className="brownBackground">
         <h1 className="simonsays__inst">Beatboxing Simon Says</h1>
         <div className="simonsays__container">
           <h2 className="simonsays__sub-inst">

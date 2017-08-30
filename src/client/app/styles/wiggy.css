@@ -26,11 +26,11 @@
 }
 
 .wiggy__image{
-  width: 40%;
+  width: 30%;
   display: block;
   margin: 0 auto;
 }
-.wiggy__container{
+.monster__container{
   text-align: center;
   padding: 5% 0 0 0;
 }
@@ -41,4 +41,15 @@
 }
 .zububu__image{
   width: 20%;
+}
+.bottom-button{
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+.single-button{
+  font-family: 'Black';
+  font-size: 2rem;
+  color: white;
+  padding: 10px;
 }

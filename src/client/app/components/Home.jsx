@@ -19,7 +19,7 @@ class Lesson extends React.Component{
   }
   render(){
     return (
-      <div className="starBackground">
+      <div className="stuffBackground">
         <img src={title} className="titleHome"/>
         <a className="planetLink" href="/lesson1">
           <img src={p1} className="planetHome planet1"/>
