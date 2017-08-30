@@ -25,7 +25,7 @@ class Simonsays extends React.Component {
         2: kSimonSoundUrl,
         3: sSimonSoundUrl
       },
-      finalLength: 8
+      finalLength: 6
     };
     this.simonTurn = this.simonTurn.bind(this);
     this.simonSays = this.simonSays.bind(this);
@@ -116,7 +116,7 @@ class Simonsays extends React.Component {
             userSequence: [],
             message: "Good Job, You WIN!"
           });
-          this.props.increaseProgramState();
+          window.location="/lesson2_zububu"
 
         } else {
           this.setState({userSequence: [], message: "That didn't match, try again!"});
@@ -177,7 +177,7 @@ class Simonsays extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="greenBackground">
         <h1 className="simonsays__inst">Beatboxing Simon Says</h1>
         <div className="simonsays__container">
           <h2 className="simonsays__sub-inst">
