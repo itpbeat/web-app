@@ -96,26 +96,28 @@ class Wiggy extends React.Component {
     });
 
     return (
-      <div className="wiggy__container">
-        <header className="component-header">
-          <h1>YOU FOUND WIGGY!</h1>
-        </header>
-        <img className="wiggy__image" src={wiggyImageUrl}/>
-        <section className="wiggy-container">
-          <button className={trackButtonBClass} onClick={() => this.playTrack(0)}>
-            <h2 className="wiggy-button__title">B</h2>
-          </button>
-          <button className={trackButtonTClass} onClick={() => this.playTrack(1)}>
-            <h2 className="wiggy-button__title">T</h2>
-          </button>
-          <br/>
-          <button className={trackButtonKClass} onClick={() => this.playTrack(2)}>
-            <h2 className="wiggy-button__title">K</h2>
-          </button>
-          <button className={trackButtonSClass} onClick={() => this.playTrack(3)}>
-            <h2 className="wiggy-button__title">S</h2>
-          </button>
-        </section>
+      <div className="starBackground">
+        <div className="wiggy__container">
+          <header className="component-header">
+            <h1>YOU FOUND WIGGY!</h1>
+          </header>
+          <img className="wiggy__image" src={wiggyImageUrl}/>
+          <section className="wiggy-container">
+            <button className={trackButtonBClass} onClick={() => this.playTrack(0)}>
+              <h2 className="wiggy-button__title">B</h2>
+            </button>
+            <button className={trackButtonTClass} onClick={() => this.playTrack(1)}>
+              <h2 className="wiggy-button__title">T</h2>
+            </button>
+            <br/>
+            <button className={trackButtonKClass} onClick={() => this.playTrack(2)}>
+              <h2 className="wiggy-button__title">K</h2>
+            </button>
+            <button className={trackButtonSClass} onClick={() => this.playTrack(3)}>
+              <h2 className="wiggy-button__title">S</h2>
+            </button>
+          </section>
+        </div>
       </div>
     );
   }

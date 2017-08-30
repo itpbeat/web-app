@@ -21,20 +21,20 @@ var config = {
       loader: 'eslint-loader'
     }, {
       test: /\.css$/,
-      loaders: ['style-loader', 'css-loader', 'sass-loader']
+      loaders: ['style-loader', 'css-loader', 'resolve-url-loader']
     }, {
-      test: /\.(svg|mp3|wav)$/,
-      loader: 'file-loader'
-    }, {
-      test: /\.(ttf|eot|woff|woff2)$/,
+      test: /\.(svg|mp3|wav|ttf|eot|woff|woff2)$/,
       loader: 'file-loader',
       options: {
         name: '[name].[ext]',
       },
-    },{
+    }, {
       test: /\.(jpe?g|png|gif|svg)$/,
       use: [{
-        loader: 'file-loader'
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]',
+        }
       }, {
         loader: 'image-webpack-loader',
         options: {

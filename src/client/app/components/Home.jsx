@@ -19,10 +19,14 @@ class Lesson extends React.Component{
   }
   render(){
     return (
-      <div style={background}>
+      <div className="starBackground">
         <img src={title} className="titleHome"/>
-        <img src={p1} className="planetHome planet1" onClick={this.props.increaseProgramState}/>
-        <img src={p2} className="planetHome planet2" onClick={this.props.planetState}/>
+        <a className="planetLink" href="/lesson1">
+          <img src={p1} className="planetHome planet1"/>
+        </a>
+        <a className="planetLink" href="/lesson2">
+          <img src={p2} className="planetHome planet2"/>
+        </a>
         <img src={p3} className="planetHome planet3"/>
         <img src={logo} className='logoImg' />
       </div>

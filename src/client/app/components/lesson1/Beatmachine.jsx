@@ -120,7 +120,7 @@ class Beatmachine extends React.Component {
 
   componentDidUpdate() {
       if(this.state.noClicks == 30 ) {
-        this.props.increaseProgramState();
+        window.location = "/lesson1_wiggy"
       }
   }
 
@@ -233,7 +233,7 @@ class Beatmachine extends React.Component {
     }
 
     return (
-      <div>
+      <div className="greenBackground">
         <h1 className="beatmachine__inst">
           {this.state.messages[this.state.programState+1]}
         </h1>
