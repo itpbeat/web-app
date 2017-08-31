@@ -15,6 +15,14 @@
 ## Contribution Guideline
 To change video content, navigate to Video.jsx file, and change the videoId to your youtube video id
 
+## Setup and Push to heroku
+1. go to the root folder of the project
+2. login to heroku using `heroku auth:login` 
+3. add a new git remote to the project which points to the heroku app 
+`heroku git:remote -a planet-beat`
+4. Now push whatever changes you have made to your code to the master branch and then run
+`git push heroku master`
+5. You should see the updates in [the app](https://planet-beat.herokuapp.com)
 
 ## References
 
